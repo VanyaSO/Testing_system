@@ -1,0 +1,4 @@
+#ifndef TESTING_SYSTEM_CONFIG_H
+#define TESTING_SYSTEM_CONFIG_H
+
+#endif
