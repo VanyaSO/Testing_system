@@ -1,29 +1,9 @@
 #include "Menu.h"
 #include "AdminMenu/AdminMenu.h"
+#include "../common/Common/Common.h"
 #include "./common/config.h"
 
 bool isArrayAdminFull = true;
-
-// Функция принимает
-// макс. вариант из этого меню, мин. вариант из этого меню - дефолт 0
-// делает проверку и возвращает выбранный варинт если такой есть
-int Menu::getAction(int maxVarAction, int minVarAction) {
-    int action;
-    cin >> action;
-
-    // если ввели не число
-    if (cin.fail())
-    {
-        cin.clear();
-        cin.ignore(INT16_MAX, '\n');
-        throw invalid_argument("Error type");
-    }
-
-    if (action < minVarAction || action > maxVarAction)
-        throw out_of_range("Error range");
-
-    return action;
-}
 
 int Menu::getActionMenu(int max, int min) {
     int action;
@@ -31,7 +11,7 @@ int Menu::getActionMenu(int max, int min) {
     {
         try
         {
-            action = getAction(max, min);
+            action = Common::getAction(max, min);
             break;
         }
         catch (const invalid_argument& error)
