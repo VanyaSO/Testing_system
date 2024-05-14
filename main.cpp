@@ -1,10 +1,10 @@
 #include <iostream>
 using namespace std;
-#include "./common/config.h"
+#include "./Menu/Menu.h"
 
 int main()
 {
-    cout << "Hello Testing _ system\n";
-    cout << "Hello World\n";
+    Menu::mainMenu();
+
     return 0;
 }
