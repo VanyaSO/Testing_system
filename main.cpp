@@ -10,7 +10,6 @@ using namespace std;
 
 int main()
 {
-
     Tester tst("MyLogin", "MyPass", "Role", "MyName", "MySname", "MyLastName", "MyAddress", "0961112233");
     tst.show();
 
