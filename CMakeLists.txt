@@ -1,12 +1,23 @@
-# CMakeList.txt : CMake project for Testing_system, include source and define
-# project specific logic here.
-#
+cmake_minimum_required(VERSION 3.12)
 
-# Add source to this project's executable.
-add_executable (Testing_system "main.cpp" "config.h" "Users/User.h" "Users/User.cpp" "Users/Tester/Tester.h" "Users/Tester/Tester.cpp" "Users/Admin/Admin.h" "Users/Admin/Admin.cpp")
+project(Testing_system)
+
+add_executable(Testing_system
+        main.cpp
+        common/config.h
+        common/Common/Common.h
+        common/Common/Common.cpp
+        Menu/Menu.h
+        Menu/Menu.cpp
+        Users/User.h
+        Users/User.cpp
+        Users/Tester/Tester.h
+        Users/Tester/Tester.cpp
+        Users/Admin/Admin.h
+        Users/Admin/Admin.cpp
+        Menu/AdminMenu/AdminMenu.cpp
+)
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET Testing_system PROPERTY CXX_STANDARD 20)
 endif()
-
-# TODO: Add tests and install targets if needed.

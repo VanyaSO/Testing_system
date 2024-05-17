@@ -1,7 +1,7 @@
 #include "Menu.h"
-#include "AdminMenu/AdminMenu.h"
+#include "./AdminMenu/AdminMenu.h"
 #include "../common/Common/Common.h"
-#include "./common/config.h"
+#include "../common/config.h"
 
 bool isArrayAdminFull = true;
 
