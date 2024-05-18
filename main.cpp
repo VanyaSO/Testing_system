@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 #include <string>
+//#include "./common/config.h"
 #include "Users/User.h"
 #include "Users/Tester/Tester.h"
 #include "Users/Admin/Admin.h"
@@ -9,12 +10,13 @@ using namespace std;
 
 int main()
 {
-    Menu::mainMenu();
-    Tester tst("MyLogin", "MyPass", "Role", "MyName", "MySname", "MyLastName", "MyAddress", "0961112233");
+    Tester tst("MyLogin", "MyPass", "MyName", "MySname", "MyLastName", "MyAddress", "0961112233");
     tst.show();
 
-    Admin adm("LOGIN", "PASSWORD", "ROLE");
+    Admin adm("LOGIN", "PASSWORD");
     adm.show();
+
+    Menu::mainMenu();
 
 
     return 0;
