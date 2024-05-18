@@ -6,6 +6,10 @@ using namespace std;
 #include "Users/Tester/Tester.h"
 #include "Users/Admin/Admin.h"
 #include "Menu/Menu.h"
+#include "FileWriteReadTest/FileWriteReadTest.h"
+#include "Test/Test.h"
+#include "Test/Question/Question.h"
+
 
 
 int main()

@@ -16,6 +16,13 @@ add_executable(Testing_system
         Users/Admin/Admin.h
         Users/Admin/Admin.cpp
         Menu/AdminMenu/AdminMenu.cpp
+        Test/Question/Question.h
+        Test/Question/Question.cpp
+        Test/Test.h
+        Test/Test.cpp
+        FileWriteReadTest/FileWriteReadTest.h
+        FileWriteReadTest/FileWriteReadTest.cpp
+
 )
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
