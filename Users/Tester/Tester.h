@@ -15,8 +15,7 @@ class Tester : public User
 	string _address;
 	string _phone;
 public:
-	Tester(s_t login, s_t pass, s_t role, s_t name, s_t sName, s_t lastName, s_t address, s_t phone);
-
+	Tester(s_t login, s_t pass, s_t name, s_t sName, s_t lastName, s_t address, s_t phone);
 
 	void show();
 	void Register();		// <- TODO  {}
