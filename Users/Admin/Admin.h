@@ -1,5 +1,4 @@
 #pragma once
-
 #include "../User.h"
 
 
@@ -7,9 +6,9 @@ class Admin : public User
 {
 
 public:
-	Admin(string login, string pass, string role);
+	Admin(s_t login, s_t pass):User(login, pass, "admin"){}
 
-	void show();  //  Потом убрать show у админа?
+	void show();  //  пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ show пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ?
 	void Register();  // <- TODO
 	void Login();	// <- TODO
 };
