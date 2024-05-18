@@ -8,7 +8,6 @@ struct FullName
 	string lastName;
 };
 
-
 class Tester : public User
 {
 	FullName _fullName;
@@ -22,5 +21,4 @@ public:
 	void Login();		// <- TODO
 	//void startTest();   // <- TODO
 	//void watchResult();  // <- TODO
-
 };

@@ -11,11 +11,18 @@ using namespace std;
 #include "Test/Question/Question.h"
 
 
-
 int main()
 {
     Tester tst("MyLogin", "MyPass", "MyName", "MySname", "MyLastName", "MyAddress", "0961112233");
     tst.show();
+    // выгрузка админов в массив
+    // выгрузка тестеров в массив
+    // выгрузка тестов
+
+
+
+
+
 
     Admin adm("LOGIN", "PASSWORD");
     adm.show();

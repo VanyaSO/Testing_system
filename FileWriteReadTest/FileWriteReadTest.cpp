@@ -49,18 +49,21 @@ void FileWriteReadTest::readTest()
 	}
 	else
 	{
-		while (getline(fin, line)) // Считывание строки из файла
+		while (getline(fin, line)) // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 		{
-			if (getline(fin, line))
-			{
-				indexCorrectAnswer = stoi(line);
-				cout << sizeof(indexCorrectAnswer) << endl;
-			}
-			// тут нужно запросить ответ у пользователя и сравнить его с indexCorrectAnswer
-			else
-			{
-				cout << line << endl;
-			}
+            if (line == "CorrectAnswer: ")
+            {
+                if (getline(fin, line))
+                {
+                    indexCorrectAnswer = stoi(line);
+                    cout << sizeof(indexCorrectAnswer) << endl;
+                }
+                // С‚СѓС‚ РЅСѓР¶РЅРѕ Р·Р°РїСЂРѕСЃРёС‚СЊ РѕС‚РІРµС‚ Сѓ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ Рё СЃСЂР°РІРЅРёС‚СЊ РµРіРѕ СЃ indexCorrectAnswer
+            }
+            else
+            {
+                cout << line << endl;
+            }
 		}
 		fin.close();
 	}

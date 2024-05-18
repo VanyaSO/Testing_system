@@ -29,12 +29,11 @@ int Menu::getActionMenu(int max, int min) {
 void Menu::mainMenu()
 {
     // проверка есть ли у нас админ
-    if (isArrayAdminFull)
+    if (!isArrayAdminFull)
     {
         cout << "Регистрация администратор" << endl;
-        isArrayAdminFull = false;
         //TODO: регистрация админа;
-        //TODO: открытие меню админа;
+        AdminMenu::adminMenu();
     }
 
     cout << "Главное меню" << endl;
@@ -55,7 +54,6 @@ void Menu::mainMenu()
         case 0:
             exit(0);
     }
-
 
     //TODO: после входа будет проверка кто зашел в
     // систему и исходя от этого принтить подходяее меню

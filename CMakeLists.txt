@@ -22,6 +22,7 @@ add_executable(Testing_system
         Test/Test.cpp
         FileWriteReadTest/FileWriteReadTest.h
         FileWriteReadTest/FileWriteReadTest.cpp
+        Menu/TesterMenu/TesterMenu.cpp
 
 )
 

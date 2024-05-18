@@ -1,3 +1,0 @@
-D:/ЖЕНЯ/Обучение/ITStep/ДЗ/Control_work/out/build/x64-Debug/CMakeFiles/Testing_system.dir
-D:/ЖЕНЯ/Обучение/ITStep/ДЗ/Control_work/out/build/x64-Debug/CMakeFiles/edit_cache.dir
-D:/ЖЕНЯ/Обучение/ITStep/ДЗ/Control_work/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir
