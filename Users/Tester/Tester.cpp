@@ -6,8 +6,8 @@
 Tester::Tester(s_t login, s_t pass, s_t name, s_t sName, s_t lastName, s_t address, s_t phone)
     :_fullName{ name, sName, lastName }, _address(address), _phone(phone), User(login, pass, "tester")
 {
-	_address = address;
-	_phone = phone;
+	//_address = address;
+	//_phone = phone;
 }
 
 
