@@ -3,7 +3,7 @@
 using namespace std;
 #include <string>
 
-typedef string s_t;    //  string можно писать как s_t для сокращения
+typedef string s_t;    //  string ????? ?????? ??? s_t ??? ??????????
 
 class IUser
 {
@@ -13,15 +13,15 @@ public:
 };
 
 
-
 class User : public IUser
 {
 protected:
-	string _login;
-	string _password;
-	string _role;
+    s_t _login;
+    s_t _password;
+    s_t _role;
 
-	bool authentication(string login, string pass);  //  <- TODO
+    User(s_t, s_t, s_t);
+	bool authentication(s_t login, s_t pass);  //  <- TODO
 public:
 
 };
