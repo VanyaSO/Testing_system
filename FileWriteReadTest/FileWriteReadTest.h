@@ -10,7 +10,6 @@ using namespace std;
 class FileWriteReadTest
 {
 	string _pathToTest;
-
 public:
 	void setPathToTest(string);
 	void saveTestToFile(Test&);
