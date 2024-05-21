@@ -21,6 +21,9 @@ public:
 	string getAddress() const;
 	string getPhone() const;
 
+	void setAddress(string address);
+	void setPhone(string phone);  //   accept only digits
+
 	void show() override;
 	void Register() override;	 // добавить проверку длинны _phone ?
 

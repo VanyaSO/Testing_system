@@ -28,6 +28,19 @@ string Tester::getPhone() const
 	return _phone;
 }
 
+void Tester::setAddress(string address)
+{
+	_address = address;
+}
+
+void Tester::setPhone(string phone)
+{
+	if (all_of(phone.begin(), phone.end(), isdigit)) // _phone must be only digits
+	{
+		_phone = phone;
+	}
+}
+
 void Tester::show()
 {
 	cout<<"Full Name: " << _fullName.name << " " << _fullName.sName << " " << _fullName.lastName << endl;
