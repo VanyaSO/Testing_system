@@ -25,9 +25,9 @@ int main()
 
 
 
-    Tester toster;
-    toster.Register();
-    toster.show();
+    //Tester toster;
+    //toster.Register();
+    //toster.show();
 
     //Tester* toster = new Tester;
     //toster->show();
@@ -40,7 +40,7 @@ int main()
     // выгрузка админов в массив
     // выгрузка тестеров в массив
     // выгрузка тестов
-   /* Menu::mainMenu();*/
+    Menu::mainMenu();
 
 
     //for (int i = 0; i < arrayUser.size(); ++i) {
