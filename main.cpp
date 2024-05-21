@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 #include <string>
-//#include "./common/config.h"
+#include "./common/config.h"
 #include "Users/User.h"
 #include "Users/Tester/Tester.h"
 #include "Users/Admin/Admin.h"
@@ -10,26 +10,20 @@ using namespace std;
 #include "Test/Test.h"
 #include "Test/Question/Question.h"
 
-
 int main()
 {
+    Admin testAdm("admin", "admin");
+    arrayUser.push_back(&testAdm);
+
     setlocale(LC_ALL, " ");
-    Tester tst("MyLogin", "MyPass", "MyName", "MySname", "MyLastName", "MyAddress", "0961112233");
-    tst.show();
     // выгрузка админов в массив
     // выгрузка тестеров в массив
     // выгрузка тестов
-
-
-
-
-
-
-    Admin adm("LOGIN", "PASSWORD");
-    adm.show();
-
     Menu::mainMenu();
 
+    for (int i = 0; i < arrayUser.size(); ++i) {
+        delete arrayUser[i];
+    }
 
     return 0;
 }
