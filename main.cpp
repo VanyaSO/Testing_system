@@ -13,7 +13,8 @@ using namespace std;
 
 int main()
 {
-    setlocale(LC_ALL, " ");
+    setlocale(LC_ALL, "");
+
     Tester tst("MyLogin", "MyPass", "MyName", "MySname", "MyLastName", "MyAddress", "0961112233");
     tst.show();
     // выгрузка админов в массив
