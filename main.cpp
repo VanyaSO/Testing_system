@@ -20,27 +20,24 @@ int main()
     Admin testAdm("admin", "admin");
     arrayUser.push_back(&testAdm);
 
-
     setlocale(LC_ALL, " ");
-
-
 
     //Tester toster;
     //toster.Register();
     //toster.show();
 
-    //Tester* toster = new Tester;
-    //toster->show();
+    Tester toster("login1","pass1","name1","sName1","LName1","address1","phone1");
+    toster.show();
+    cout<<"FullName: "<<toster.getFullName()<<endl;
+    cout<<"address: "<<toster.getAddress()<<endl;
+    cout<<"phone: "<<toster.getPhone()<<endl;
 
-    //Tester toster;
-    //toster.show();
-    //arrayUser.push_back(&toster);
 
 
     // выгрузка админов в массив
     // выгрузка тестеров в массив
     // выгрузка тестов
-    Menu::mainMenu();
+    //Menu::mainMenu();
 
 
     //for (int i = 0; i < arrayUser.size(); ++i) {

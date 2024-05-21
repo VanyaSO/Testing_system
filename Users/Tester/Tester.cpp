@@ -13,6 +13,21 @@ Tester::Tester(string login, string pass, string name, string sName, string last
 {
 }
 
+string Tester::getFullName() const
+{
+	return _fullName.name + " " + _fullName.sName + " " + _fullName.lastName + " ";
+}
+
+string Tester::getAddress() const
+{
+	return _address;
+}
+
+string Tester::getPhone() const
+{
+	return _phone;
+}
+
 void Tester::show()
 {
 	cout<<"Full Name: " << _fullName.name << " " << _fullName.sName << " " << _fullName.lastName << endl;
@@ -62,8 +77,6 @@ void Tester::Register()
 		}
 		cout << ERROR_COLOR << "Phone number should only contain digits." << RESET_COLOR << endl;
 	}
-
-
 
 
 	arrayUser.push_back(this);
