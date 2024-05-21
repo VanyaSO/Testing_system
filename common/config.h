@@ -1,7 +1,12 @@
-#ifndef CONFIG
-#define CONFIG
-const char* ERROR_COLOR = "\033[1;31m";
-const char* SUCCESSFUL_COLOR = "\033[1;32m";
-const char* WARNING_COLOR = "\033[1;33m";
-const char* RESET_COLOR = "\033[0m";
-#endif
+#include <vector>
+#include "../Users/User.h"
+
+extern const char* ERROR_COLOR;
+extern const char* SUCCESSFUL_COLOR;
+extern const char* WARNING_COLOR;
+extern const char* RESET_COLOR;
+
+extern User* user;
+extern vector<User*> arrayUser;
+
+extern const int passMinSize;  // = 6 â .cpp 

@@ -14,11 +14,12 @@ class Tester : public User
 	string _address;
 	string _phone;
 public:
-	Tester(s_t login, s_t pass, s_t name, s_t sName, s_t lastName, s_t address, s_t phone);
+	Tester();
+	Tester(string login, string pass, string name, string sName, string lastName, string address, string phone);
 
-	void show();
-	void Register();		// <- TODO  {}
-	void Login();		// <- TODO
+	void show() override;
+	void Register() override;	 // добавить проверку длинны _phone ?
+
 	//void startTest();   // <- TODO
 	//void watchResult();  // <- TODO
 };

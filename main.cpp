@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 #include <string>
-//#include "./common/config.h"
+#include "./common/config.h"
 #include "Users/User.h"
 #include "Users/Tester/Tester.h"
 #include "Users/Admin/Admin.h"
@@ -13,24 +13,39 @@ using namespace std;
 
 int main()
 {
-    setlocale(LC_ALL, "");
+    // #include <windows.h>    // byte is ambiguous symbol
+    //SetConsoleCP(1251);      // меню в кракозябрах
+    //SetConsoleCP(866);
 
-    Tester tst("MyLogin", "MyPass", "MyName", "MySname", "MyLastName", "MyAddress", "0961112233");
-    tst.show();
+    Admin testAdm("admin", "admin");
+    arrayUser.push_back(&testAdm);
+
+
+    setlocale(LC_ALL, " ");
+
+
+
+    Tester toster;
+    toster.Register();
+    toster.show();
+
+    //Tester* toster = new Tester;
+    //toster->show();
+
+    //Tester toster;
+    //toster.show();
+    //arrayUser.push_back(&toster);
+
+
     // выгрузка админов в массив
     // выгрузка тестеров в массив
     // выгрузка тестов
+   /* Menu::mainMenu();*/
 
 
-
-
-
-
-    Admin adm("LOGIN", "PASSWORD");
-    adm.show();
-
-    Menu::mainMenu();
-
+    //for (int i = 0; i < arrayUser.size(); ++i) {
+    //    delete arrayUser[i];
+    //}
 
     return 0;
 }

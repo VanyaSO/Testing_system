@@ -1,14 +1,14 @@
 #pragma once
+#include <vector>
 #include "../User.h"
-
 
 class Admin : public User
 {
 
 public:
-	Admin(s_t login, s_t pass):User(login, pass, "admin"){}
+    Admin():User("", "", "admin"){}
+	Admin(string login, string pass):User(login, pass, "admin"){}
 
-	void show();  //  ����� ������ show � ������?
-	void Register();  // <- TODO
-	void Login();	// <- TODO
+	void show() override;
+	void Register() override;
 };

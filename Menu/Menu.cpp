@@ -2,8 +2,7 @@
 #include "./AdminMenu/AdminMenu.h"
 #include "../common/Common/Common.h"
 #include "../common/config.h"
-
-bool isArrayAdminFull = true;
+#include "../Users/Admin/Admin.h"
 
 int Menu::getActionMenu(int max, int min) {
     int action;
@@ -29,11 +28,12 @@ int Menu::getActionMenu(int max, int min) {
 void Menu::mainMenu()
 {
     // проверка есть ли у нас админ
-    if (!isArrayAdminFull)
+    if (arrayUser.empty())
     {
-        cout << "Регистрация администратор" << endl;
-        //TODO: регистрация админа;
-        AdminMenu::adminMenu();
+        cout << "Регистрация администратора" << endl;
+        user = new Admin;
+        user->Register();
+        cout << SUCCESSFUL_COLOR << "Aдминистратор зарегистрирован!" << RESET_COLOR << endl;
     }
 
     cout << "Главное меню" << endl;
@@ -42,12 +42,13 @@ void Menu::mainMenu()
     cout << "0) Завершить работу програмы" << endl;
 
     int action = getActionMenu(2);
-
     switch (action)
     {
         case 1:
             cout << "Делаем Вход" << endl;
-            break; //TODO: функция входа для юзера
+            user = User::Login();
+            if (user != nullptr) cout << SUCCESSFUL_COLOR << "Вход успешен!" << RESET_COLOR << endl;
+            break;
         case 2:
             cout << " Делаем Регистрацию" << endl;
             break; //TODO: функция регистрации для юзера
@@ -55,9 +56,17 @@ void Menu::mainMenu()
             exit(0);
     }
 
-    //TODO: после входа будет проверка кто зашел в
-    // систему и исходя от этого принтить подходяее меню
-    AdminMenu::adminMenu();
+    if (user != nullptr)
+    {
+        if (user->getRole() == "admin")
+        {
+            cout << "admin" << endl;
+            AdminMenu::adminMenu();
+        }
+//    else (user->getRole() == "tester");
+//        cout << "tester" << endl;
+    }
+
     mainMenu();
 }
 
