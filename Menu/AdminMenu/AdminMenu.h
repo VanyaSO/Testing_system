@@ -1,5 +1,4 @@
-#ifndef TESTING_SYSTEM_ADMINMENU_H
-#define TESTING_SYSTEM_ADMINMENU_H
+#pragma one
 #include "../Menu.h"
 
 class AdminMenu: public Menu
@@ -10,6 +9,3 @@ public:
     static void adminMenuStatistics();
     static void adminMenuTestManagement();
 };
-
-
-#endif
