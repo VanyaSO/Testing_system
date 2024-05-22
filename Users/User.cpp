@@ -2,6 +2,7 @@
 #include "./Admin/Admin.h"
 #include "../common/config.h"
 #include "../Menu/Menu.h"
+#include "Tester/Tester.h"
 User::User(string login, string pass, string role)
 {
     _login = login;
@@ -84,9 +85,14 @@ User* User::Login()
                 {
                     // создаем юзера и возвращаем его
                     // TODO: сделать это для тестера
-                    Admin* newAdmin = new Admin(login, password);
-                    arrayUser.push_back(newAdmin);
-                    return newAdmin;
+                    Tester* newTester = new Tester(login, password);
+                    newTester->requestPersonalDetails();       
+                    arrayUser.push_back(newTester);     // Надо протестировать создание Тестера и его удаление в цикле в мейн ( будет ли еррор heap)
+                    return newTester;
+                    
+                    //Admin* newAdmin = new Admin(login, password);
+                    //arrayUser.push_back(newAdmin);
+                    //return newAdmin;
                 }
             case 0:
                 return nullptr;
