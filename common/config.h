@@ -8,3 +8,5 @@ extern const char* RESET_COLOR;
 
 extern User* user;
 extern vector<User*> arrayUser;
+
+extern string path_file_admin;
