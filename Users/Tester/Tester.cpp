@@ -1,7 +1,7 @@
 #include "Tester.h"
 #include "../../common/config.h"
-#include <algorithm>  // äëÿ all_of
-#include <cctype>     // äëÿ isdigit
+#include <algorithm>  // ï¿½ï¿½ï¿½ all_of
+#include <cctype>     // ï¿½ï¿½ï¿½ isdigit
 
 Tester::Tester()
 	:_address(""),_phone(""), _fullName{"", "", ""}, User("", "", "tester")
@@ -40,10 +40,10 @@ void Tester::setAddress(string address)
 
 void Tester::setPhone(string phone)
 {
-	if (all_of(phone.begin(), phone.end(), isdigit)) // _phone must be only digits
-	{												 // mb add throw exc if not digit?
+//	if (all_of(phone.begin(), phone.end(), isdigit)) // _phone must be only digits
+//	{												 // mb add throw exc if not digit?
 		_phone = phone;
-	}
+//	}
 }
 
 void Tester::show()
@@ -70,7 +70,7 @@ void Tester::Register()
 	{
 		cout << "Enter password: " << endl;
 		cin >> _password;
-		if (_password.length() < passMinSize) // passMinSize = 6 â configå
+		if (_password.length() < passMinSize) // passMinSize = 6 ï¿½ configï¿½
 		{
 			cout << ERROR_COLOR << "Password must be at least 6 characters." << RESET_COLOR << endl;
 			continue;
@@ -91,15 +91,15 @@ void Tester::requestPersonalDetails()
 	cin >> _fullName.lastName;
 	cout << "Enter address: " << endl;
 	cin >> _address;
-	while (true)
-	{
+//	while (true)
+//	{
 		cout << "Enter phone number: " << endl;
 		cin >> _phone;
-		if (all_of(_phone.begin(), _phone.end(), isdigit)) // _phone must be only digits
-		{
-			break;
-		}
+//		if (all_of(_phone.begin(), _phone.end(), isdigit)) // _phone must be only digits
+//		{
+//			break;
+//		}
 		cout << ERROR_COLOR << "Phone number should only contain digits." << RESET_COLOR << endl;
-	}
+//	}
 
 }

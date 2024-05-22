@@ -23,9 +23,9 @@ int main()
 
     setlocale(LC_ALL, " ");
 
-    Tester toster;
-    toster.Register();
-    toster.show();
+//    Tester toster;
+//    toster.Register();
+//    toster.show();
 
     //Tester* toster = new Tester();
     //toster->Register();
