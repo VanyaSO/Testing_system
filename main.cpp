@@ -9,21 +9,19 @@ using namespace std;
 #include "FileWriteReadTest/FileWriteReadTest.h"
 #include "Test/Test.h"
 #include "Test/Question/Question.h"
+#include "./FileWriteReadUsers/FileWriteReadUsers.h"
 
 int main()
 {
-    Admin testAdm("admin", "admin");
-    arrayUser.push_back(&testAdm);
-
     setlocale(LC_ALL, " ");
-    // выгрузка админов в массив
-    // выгрузка тестеров в массив
-    // выгрузка тестов
+    FileWriteReadUsers::loadUsersFromFile();
+
     Menu::mainMenu();
+
+    FileWriteReadUsers::saveUsersToFile();
 
     for (int i = 0; i < arrayUser.size(); ++i) {
         delete arrayUser[i];
     }
-
     return 0;
 }
