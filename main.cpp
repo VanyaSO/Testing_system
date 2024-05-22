@@ -22,15 +22,17 @@ int main()
 
     setlocale(LC_ALL, " ");
 
-    //Tester toster;
-    //toster.Register();
+    Tester toster;
+    toster.Register();
+    toster.show();
+
+    //Tester* toster = new Tester();
+    //toster->Register();
+    //toster->show();
+
+    //Tester toster("login1","pass1","name1","sName1","LName1","address1","phone1");
     //toster.show();
 
-    Tester toster("login1","pass1","name1","sName1","LName1","address1","phone1");
-    toster.show();
-    cout<<"FullName: "<<toster.getFullName()<<endl;
-    cout<<"address: "<<toster.getAddress()<<endl;
-    cout<<"phone: "<<toster.getPhone()<<endl;
 
 
 
@@ -40,9 +42,9 @@ int main()
     //Menu::mainMenu();
 
 
-    //for (int i = 0; i < arrayUser.size(); ++i) {
-    //    delete arrayUser[i];
-    //}
+    for (int i = 0; i < arrayUser.size(); ++i) {
+        delete arrayUser[i];
+    }
 
     return 0;
 }

@@ -8,6 +8,11 @@ Tester::Tester()
 {
 }
 
+Tester::Tester(string login, string pass)
+	: _address(""), _phone(""), _fullName{ "", "", "" }, User(login, pass, "tester")
+{
+}
+
 Tester::Tester(string login, string pass, string name, string sName, string lastName, string address, string phone)
     :_fullName{ name, sName, lastName }, _address(address), _phone(phone), User(login, pass, "tester")
 {
@@ -36,7 +41,7 @@ void Tester::setAddress(string address)
 void Tester::setPhone(string phone)
 {
 	if (all_of(phone.begin(), phone.end(), isdigit)) // _phone must be only digits
-	{
+	{												 // mb add throw exc if not digit?
 		_phone = phone;
 	}
 }
@@ -72,6 +77,12 @@ void Tester::Register()
 		}
 		break;
 	}
+	requestPersonalDetails();
+	arrayUser.push_back(this);
+}
+
+void Tester::requestPersonalDetails()
+{
 	cout << "Enter name: " << endl;
 	cin >> _fullName.name;
 	cout << "Enter surname: " << endl;
@@ -84,13 +95,11 @@ void Tester::Register()
 	{
 		cout << "Enter phone number: " << endl;
 		cin >> _phone;
-		if(all_of(_phone.begin(),_phone.end(),isdigit)) // _phone must be only digits
+		if (all_of(_phone.begin(), _phone.end(), isdigit)) // _phone must be only digits
 		{
 			break;
 		}
 		cout << ERROR_COLOR << "Phone number should only contain digits." << RESET_COLOR << endl;
 	}
 
-
-	arrayUser.push_back(this);
 }
