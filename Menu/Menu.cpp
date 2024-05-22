@@ -53,7 +53,7 @@ void Menu::mainMenu()
             cout << " Делаем Регистрацию" << endl;
             break; //TODO: функция регистрации для юзера
         case 0:
-            exit(0);
+            return;
     }
 
     if (user != nullptr)

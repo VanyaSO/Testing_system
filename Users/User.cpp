@@ -76,7 +76,7 @@ User* User::Login()
     catch (const logic_error& error)
     {
         cout << ERROR_COLOR << error.what() << RESET_COLOR << endl;
-        cout << "Желаете создать пользователя с этими данными ?" << endl;
+        cout << "Желаете зарегистрироваться?" << endl;
         cout << "1) Да \n" << "0) Нет" << endl;
 
         int action = Menu::getActionMenu(1);

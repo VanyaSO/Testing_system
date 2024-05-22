@@ -9,6 +9,7 @@ using namespace std;
 #include "FileWriteReadTest/FileWriteReadTest.h"
 #include "Test/Test.h"
 #include "Test/Question/Question.h"
+#include "./FileWriteReadUsers/FileWriteReadUsers.h"
 
 
 int main()
@@ -17,8 +18,8 @@ int main()
     //SetConsoleCP(1251);      // меню в кракозябрах
     //SetConsoleCP(866);
 
-    Admin testAdm("admin", "admin");
-    arrayUser.push_back(&testAdm);
+//     Admin testAdm("admin", "admin");
+//     arrayUser.push_back(&testAdm);
 
     setlocale(LC_ALL, " ");
 
@@ -41,10 +42,14 @@ int main()
     // выгрузка тестов
     //Menu::mainMenu();
 
+    FileWriteReadUsers::loadUsersFromFile();
+ 
+    Menu::mainMenu();
+
+    FileWriteReadUsers::saveUsersToFile();
 
     for (int i = 0; i < arrayUser.size(); ++i) {
         delete arrayUser[i];
     }
-
     return 0;
 }

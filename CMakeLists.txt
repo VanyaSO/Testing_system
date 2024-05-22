@@ -24,6 +24,8 @@ add_executable(Testing_system
         FileWriteReadTest/FileWriteReadTest.cpp
         Menu/TesterMenu/TesterMenu.cpp
         common/config.cpp
+        FileWriteReadUsers/FileWriteReadUsers.h
+        FileWriteReadUsers/FileWriteReadUsers.cpp
 
 )
 
