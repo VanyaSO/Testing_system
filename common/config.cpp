@@ -7,3 +7,6 @@ const char* RESET_COLOR = "\033[0m";
 
 User* user = nullptr;
 vector<User*> arrayUser;
+
+string path_file_admin = "../data/users/admin.dat";
+

@@ -19,7 +19,7 @@ protected:
     string _password;
     string _role;
 
-    User(string, string, string);;
+    User(string, string, string);
     bool isUserRegistered();
 public:
     virtual ~User() {}
