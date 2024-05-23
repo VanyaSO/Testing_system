@@ -42,14 +42,8 @@ void FileWriteReadUsers::saveUsersToFile()
     {
         for (int i = 0; i < arrayUser.size(); ++i)
         {
-            if (arrayUser[i]->getRole() == "admin")
-            {
-                writeStr(arrayUser[i]->getLogin(), fileAdmin);
-                writeStr(arrayUser[i]->getPassword(), fileAdmin);
-            }
             if (arrayUser[i]->getRole() == "tester")
             {
-           
                 Tester* tester = dynamic_cast<Tester*>(arrayUser[i]);
                 writeStr(arrayUser[i]->getLogin(), fileTester);
                 writeStr(arrayUser[i]->getPassword(), fileTester);
@@ -59,7 +53,11 @@ void FileWriteReadUsers::saveUsersToFile()
                 writeStr(tester->getLastName(), fileTester);
                 writeStr(tester->getAddress(), fileTester);
                 writeStr(tester->getPhone(), fileTester);
-
+            }
+            else if (arrayUser[i]->getRole() == "admin")
+            {
+                writeStr(arrayUser[i]->getLogin(), fileAdmin);
+                writeStr(arrayUser[i]->getPassword(), fileAdmin);
             }
         }
         fileAdmin.close();
