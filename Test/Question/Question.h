@@ -1,8 +1,8 @@
 #pragma once
 #include <iostream>
-using namespace std;
 #include <vector>
 #include <string>
+using namespace std;
 
 class Question
 {
@@ -13,8 +13,8 @@ public:
 	Question(); // пустой вопрос
 	Question(string); // с вопросом
 	void setQuestion(string);  // установить вопрос
-	void setCorrectAnswer(int); // задать индекс верного ответа
-	void addAnswerOption(string);  // добавить вариант ответа
+	void setCorrectAnswer(int);// задать индекс верного ответа
+	void addAnswerOption(string);// добавить вариант ответа
 	string getQuestion();  //получить вопрос
 	string getOneAnswer(int);  //получить ответ по индексу
 	string getCorrectAnswer();  // получить верный ответ

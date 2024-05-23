@@ -28,9 +28,9 @@ void FileWriteReadTest::saveTestToFile(Test& test)
 				fout << Q.getOneAnswer(i);
 				fout << '\n';
 			}
-			fout << "CorrectAnswer: ";
+			fout << "CorrectAnswer:";
 			fout << '\n';
-			fout << Q.getCorrectAnswer();
+			fout << Q.getNumOfCorrectAnswer();
 			fout << '\n';
 		}
 		fout.close();
@@ -41,7 +41,7 @@ void FileWriteReadTest::readTest()
 {
 	ifstream fin;
 	string line;
-	int indexCorrectAnswer;
+	int numCorrectAnswer;
 	fin.open(_pathToTest);
 	if (!fin.is_open())
 	{
@@ -49,19 +49,31 @@ void FileWriteReadTest::readTest()
 	}
 	else
 	{
-		while (getline(fin, line)) // ���������� ������ �� �����
+		int answer;// временно
+		while (getline(fin, line)) 
 		{
             if (line == "CorrectAnswer: ")
             {
                 if (getline(fin, line))
                 {
-                    indexCorrectAnswer = stoi(line);
-                    cout << sizeof(indexCorrectAnswer) << endl;
+                    numCorrectAnswer = stoi(line);
+                    // ВРЕМЕННООООООО!!!!!!!!!!!!!!ТУТ МОГЛА БЫТЬ ВАША РЕКЛАМА!!!
+					cout << " Введите номер правильного ответа!" << endl;
+					cin >> answer;
+					if (answer ==numCorrectAnswer)
+					{
+						cout << "Верно ты молодец" << endl;
+					}
+					else
+						cout << "OPSSSSS" << endl;
+					// ДО СЮДА ВРЕМЕННООООООО!!!!!!!!!!!!!!
                 }
-                // тут нужно запросить ответ у пользователя и сравнить его с indexCorrectAnswer
+                
+				system("cls");
             }
             else
             {
+				
                 cout << line << endl;
             }
 		}

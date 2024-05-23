@@ -33,6 +33,7 @@ string Tester::getPhone() const
 	return _phone;
 }
 
+
 string Tester::getName() const
 {
 	return _fullName.name;
@@ -46,6 +47,7 @@ string Tester::getSname() const
 string Tester::getLastName() const
 {
 	return _fullName.lastName;
+
 }
 
 void Tester::setAddress(string address)
@@ -55,10 +57,10 @@ void Tester::setAddress(string address)
 
 void Tester::setPhone(string phone)
 {
-//	if (all_of(phone.begin(), phone.end(), isdigit)) 
-//	{												 
+    if (all_of(phone.begin(), phone.end(), [](char c){ return isdigit(c);}))
+	{
 		_phone = phone;
-//	}
+	}
 }
 
 void Tester::show()
@@ -106,15 +108,15 @@ void Tester::requestPersonalDetails()
 	cin >> _fullName.lastName;
 	cout << "Enter address: " << endl;
 	cin >> _address;
-//	while (true)
-//	{
+	while (true)
+	{
 		cout << "Enter phone number: " << endl;
 		cin >> _phone;
-//		if (all_of(_phone.begin(), _phone.end(), isdigit)) // 
-//		{
-//			break;
-//		}
+		if (all_of(_phone.begin(), _phone.end(), [](char c){ return isdigit(c);}))
+		{
+			break;
+		}
 		cout << ERROR_COLOR << "Phone number should only contain digits." << RESET_COLOR << endl;
-//	}
+	}
 
 }
