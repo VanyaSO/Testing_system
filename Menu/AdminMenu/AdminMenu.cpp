@@ -162,9 +162,9 @@ void AdminMenu::adminMenuTestManagement()
             cout << "Добавить тест" << endl;
             pathToTest.showFiles();
             cout << " Введите номер категории" << endl;
-            action = getActionMenu(pathToTest.getDirSize(), 1);// запрос какую категорию??? по номеру! 
+            action = getActionMenu(pathToTest.getDirSize(), 1);
             pathToTest.setNewPath(pathToTest.getFileName(action));
-            pathToTest.scanExistingDirectories(); // сканируем доступные
+            pathToTest.scanExistingDirectories();
             system("cls");
             if (pathToTest.getDirSize() == 0)
             {
@@ -175,7 +175,7 @@ void AdminMenu::adminMenuTestManagement()
             {
                 pathToTest.showFiles();
                 cout << " Введите номер секции" << endl;
-                action = getActionMenu(pathToTest.getDirSize(), 1);// запрос какую категорию??? по номеру! 
+                action = getActionMenu(pathToTest.getDirSize(), 1);
                 pathToTest.setNewPath(pathToTest.getFileName(action));
                 pathToTest.scanExistingFiles();
                 system("cls");
@@ -188,7 +188,7 @@ void AdminMenu::adminMenuTestManagement()
                 int count = -1;
                 while (addQuestion)
                 {
-                    cout << "1) Вобавить вопрос" << endl;
+                    cout << "1) Добавить вопрос" << endl;
                     cout << "2) завершить" << endl;
                     action = getActionMenu(2, 1);
                     switch (action)

@@ -33,6 +33,11 @@ string Tester::getPhone() const
 	return _phone;
 }
 
+string Tester::getLogin()
+{
+	return _login;
+}
+
 void Tester::setAddress(string address)
 {
 	_address = address;
