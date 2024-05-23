@@ -49,6 +49,7 @@ void FileWriteReadTest::readTest()
 	}
 	else
 	{
+		int answer;// временно
 		while (getline(fin, line)) 
 		{
             if (line == "CorrectAnswer: ")
@@ -56,9 +57,18 @@ void FileWriteReadTest::readTest()
                 if (getline(fin, line))
                 {
                     numCorrectAnswer = stoi(line);
-                    //cout << numCorrectAnswer << endl;
+                    // ВРЕМЕННООООООО!!!!!!!!!!!!!!ТУТ МОГЛА БЫТЬ ВАША РЕКЛАМА!!!
+					cout << " Введите номер правильного ответа!" << endl;
+					cin >> answer;
+					if (answer ==numCorrectAnswer)
+					{
+						cout << "Верно ты молодец" << endl;
+					}
+					else
+						cout << "OPSSSSS" << endl;
+					// ДО СЮДА ВРЕМЕННООООООО!!!!!!!!!!!!!!
                 }
-                // тут нужно запросить ответ у пользователя и сравнить его с indexCorrectAnswer
+                
 				system("cls");
             }
             else
