@@ -67,9 +67,12 @@ void Menu::mainMenu()
             cout << "admin" << endl;
             AdminMenu::adminMenu();
         }
-    else (user->getRole() == "tester");
-        cout << "tester" << endl;
-        TesterMenu::testerMenu();
+        else if (user->getRole() == "tester")
+        {
+            cout << "tester" << endl;
+            TesterMenu::testerMenu();
+        }
+
         
     }
 
