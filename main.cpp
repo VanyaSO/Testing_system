@@ -28,10 +28,6 @@ int main()
 //    toster.Register();
 //    toster.show();
 
-    //Tester* toster = new Tester();
-    //toster->Register();
-    //toster->show();
-
     //Tester toster("login1","pass1","name1","sName1","LName1","address1","phone1");
     //toster.show();
 
@@ -46,7 +42,9 @@ int main()
     FileWriteReadUsers::loadUsersFromFile();
  
     Menu::mainMenu();
-
+    for (int i = 0; i < arrayUser.size(); ++i) {
+        cout<<arrayUser[i]<<endl;
+    }
     FileWriteReadUsers::saveUsersToFile();
 
     for (int i = 0; i < arrayUser.size(); ++i) {

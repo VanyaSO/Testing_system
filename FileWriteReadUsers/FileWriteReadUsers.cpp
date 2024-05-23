@@ -49,9 +49,17 @@ void FileWriteReadUsers::saveUsersToFile()
             }
             if (arrayUser[i]->getRole() == "tester")
             {
+           
+                Tester* tester = dynamic_cast<Tester*>(arrayUser[i]);
                 writeStr(arrayUser[i]->getLogin(), fileTester);
                 writeStr(arrayUser[i]->getPassword(), fileTester);
- /*               writeStr(arrayUser[i]->getName, fileTester);*/
+                //writeStr(dynamic_cast<Tester*>(arrayUser[i])->getName, fileTester);
+                writeStr(tester->getName(), fileTester);
+                writeStr(tester->getSname(), fileTester);
+                writeStr(tester->getLastName(), fileTester);
+                writeStr(tester->getAddress(), fileTester);
+                writeStr(tester->getPhone(), fileTester);
+
             }
         }
         fileAdmin.close();

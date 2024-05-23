@@ -1,4 +1,5 @@
 #include "TesterMenu.h"
+#include "../../Users/Tester/Tester.h"
 
 void TesterMenu::testerMenu() {
     cout << "1) Просмотреть свои предварительные результаты тестирования" << endl;

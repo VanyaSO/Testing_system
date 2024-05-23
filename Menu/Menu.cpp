@@ -55,7 +55,7 @@ void Menu::mainMenu()
             cout << " Делаем Регистрацию" << endl;
             user = new Tester;
             user->Register();
-            break; //TODO: функция регистрации для юзера
+            break; //: функция регистрации для юзера  
         case 0:
             return;
     }
@@ -72,10 +72,7 @@ void Menu::mainMenu()
             cout << "tester" << endl;
             TesterMenu::testerMenu();
         }
-
-        
     }
-
     mainMenu();
 }
 
