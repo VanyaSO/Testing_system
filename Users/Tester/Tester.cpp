@@ -33,6 +33,7 @@ string Tester::getPhone() const
 	return _phone;
 }
 
+
 string Tester::getName() const
 {
 	return _fullName.name;
@@ -46,6 +47,11 @@ string Tester::getSname() const
 string Tester::getLastName() const
 {
 	return _fullName.lastName;
+
+string Tester::getLogin()
+{
+	return _login;
+
 }
 
 void Tester::setAddress(string address)

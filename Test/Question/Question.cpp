@@ -1,8 +1,8 @@
 #include "Question.h"
 
-Question::Question() {}
+Question::Question() : _correctAnswer(0) {}
 
-Question::Question(string question) : _question(question) {}
+Question::Question(string question) : _question(question), _correctAnswer(0) {}
 
 void Question::setQuestion(string question)
 {
@@ -21,7 +21,7 @@ string Question::getOneAnswer(int index)
 
 void Question::setCorrectAnswer(int correctAnswer)
 {
-	_correctAnswer = correctAnswer;
+	_correctAnswer = correctAnswer+1;
 }
 
 void Question::addAnswerOption(string answer)
@@ -31,8 +31,7 @@ void Question::addAnswerOption(string answer)
 
 string Question::getCorrectAnswer()
 {
-	//return _answer[_correctAnswer];
-	return _answer[0]; //времено для проверки
+	return _answer[_correctAnswer];
 }
 
 int Question::getAnswerSize()
@@ -54,3 +53,4 @@ void Question::showQuestion()
 	}
 }
 
+static int _questionIndex = 0;
