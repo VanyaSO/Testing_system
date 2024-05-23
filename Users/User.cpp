@@ -87,7 +87,7 @@ User* User::Login()
                     // TODO: сделать это для тестера
                     Tester* newTester = new Tester(login, password);
                     newTester->requestPersonalDetails();       
-                    arrayUser.push_back(newTester);     // Надо протестировать создание Тестера и его удаление в цикле в мейн ( будет ли еррор heap)
+                    arrayUser.push_back(newTester);     
                     return newTester;
                     
                     //Admin* newAdmin = new Admin(login, password);

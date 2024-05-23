@@ -3,6 +3,8 @@
 #include "../common/Common/Common.h"
 #include "../common/config.h"
 #include "../Users/Admin/Admin.h"
+#include "../Users/Tester/Tester.h"
+#include "./TesterMenu/TesterMenu.h"
 
 int Menu::getActionMenu(int max, int min) {
     int action;
@@ -51,6 +53,8 @@ void Menu::mainMenu()
             break;
         case 2:
             cout << " Делаем Регистрацию" << endl;
+            user = new Tester;
+            user->Register();
             break; //TODO: функция регистрации для юзера
         case 0:
             return;
@@ -63,8 +67,10 @@ void Menu::mainMenu()
             cout << "admin" << endl;
             AdminMenu::adminMenu();
         }
-//    else (user->getRole() == "tester");
-//        cout << "tester" << endl;
+    else (user->getRole() == "tester");
+        cout << "tester" << endl;
+        TesterMenu::testerMenu();
+        
     }
 
     mainMenu();

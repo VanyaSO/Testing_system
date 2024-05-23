@@ -14,14 +14,15 @@ using namespace std;
 
 int main()
 {
-    // #include <windows.h>    // byte is ambiguous symbol
-    //SetConsoleCP(1251);      // меню в кракозябрах
-    //SetConsoleCP(866);
+    locale::global(locale(".UTF-8"));
+    //system("chcp 65001");
+    //std::wcout.imbue(std::locale("ru_RU.UTF-8"));
+    setlocale(LC_ALL, " ");
 
 //     Admin testAdm("admin", "admin");
 //     arrayUser.push_back(&testAdm);
 
-    setlocale(LC_ALL, " ");
+
 
 //    Tester toster;
 //    toster.Register();

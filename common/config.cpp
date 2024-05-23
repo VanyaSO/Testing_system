@@ -10,3 +10,4 @@ vector<User*> arrayUser;
 
 const int passMinSize = 6;
 string path_file_admin = "../data/users/admin.dat";
+string path_file_tester = "../data/users/tester.dat";

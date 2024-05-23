@@ -9,5 +9,6 @@ extern const char* RESET_COLOR;
 extern User* user;
 extern vector<User*> arrayUser;
 
-extern const int passMinSize;  // = 6 � .cpp 
+extern const int passMinSize;
 extern string path_file_admin;
+extern string path_file_tester;

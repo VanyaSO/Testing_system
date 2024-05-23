@@ -1,9 +1,11 @@
+#include "FileWriteReadUsers.h"
 #include <iostream>
 #include <fstream>
 using namespace std;
 #include "FileWriteReadUsers.h"
 #include "../common/config.h"
 #include "../Users/Admin/Admin.h"
+#include "../Users/Tester/Tester.h"
 
 void FileWriteReadUsers::writeStr(string str, fstream& file)
 {
@@ -32,9 +34,11 @@ void FileWriteReadUsers::saveUsersToFile()
     if (arrayUser.empty()) return;
 
     fstream fileAdmin;
+    fstream fileTester;
     fileAdmin.open(path_file_admin, ios::binary | ios::out);
+    fileTester.open(path_file_tester, ios::binary | ios::out);
 
-    if (fileAdmin.is_open())
+    if (fileAdmin.is_open() && fileTester.is_open())
     {
         for (int i = 0; i < arrayUser.size(); ++i)
         {
@@ -43,8 +47,15 @@ void FileWriteReadUsers::saveUsersToFile()
                 writeStr(arrayUser[i]->getLogin(), fileAdmin);
                 writeStr(arrayUser[i]->getPassword(), fileAdmin);
             }
+            if (arrayUser[i]->getRole() == "tester")
+            {
+                writeStr(arrayUser[i]->getLogin(), fileTester);
+                writeStr(arrayUser[i]->getPassword(), fileTester);
+ /*               writeStr(arrayUser[i]->getName, fileTester);*/
+            }
         }
         fileAdmin.close();
+        fileTester.close();
     }
 }
 

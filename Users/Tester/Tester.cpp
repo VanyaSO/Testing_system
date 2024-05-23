@@ -33,6 +33,21 @@ string Tester::getPhone() const
 	return _phone;
 }
 
+string Tester::getName() const
+{
+	return _fullName.name;
+}
+
+string Tester::getSname() const
+{
+	return _fullName.sName;
+}
+
+string Tester::getLastName() const
+{
+	return _fullName.lastName;
+}
+
 void Tester::setAddress(string address)
 {
 	_address = address;
@@ -40,8 +55,8 @@ void Tester::setAddress(string address)
 
 void Tester::setPhone(string phone)
 {
-//	if (all_of(phone.begin(), phone.end(), isdigit)) // _phone must be only digits
-//	{												 // mb add throw exc if not digit?
+//	if (all_of(phone.begin(), phone.end(), isdigit)) 
+//	{												 
 		_phone = phone;
 //	}
 }
@@ -95,7 +110,7 @@ void Tester::requestPersonalDetails()
 //	{
 		cout << "Enter phone number: " << endl;
 		cin >> _phone;
-//		if (all_of(_phone.begin(), _phone.end(), isdigit)) // _phone must be only digits
+//		if (all_of(_phone.begin(), _phone.end(), isdigit)) // 
 //		{
 //			break;
 //		}
