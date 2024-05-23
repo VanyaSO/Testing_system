@@ -15,6 +15,7 @@ using namespace std;
 
 int main()
 {
+
     locale::global(std::locale("ru_RU.UTF-8"));
 
     // #include <windows.h>    // byte is ambiguous symbol
@@ -28,10 +29,6 @@ int main()
     //    Tester toster;
     //    toster.Register();
     //    toster.show();
-
-    //Tester* toster = new Tester();
-    //toster->Register();
-    //toster->show();
 
     //Tester toster("login1","pass1","name1","sName1","LName1","address1","phone1");
     //toster.show();
