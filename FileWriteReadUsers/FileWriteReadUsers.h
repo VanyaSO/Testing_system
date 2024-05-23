@@ -8,7 +8,6 @@ class FileWriteReadUsers {
 public:
     static void saveUsersToFile();
     static void loadUsersFromFile();
-    //static void saveTesterToFile();
 };
 
 

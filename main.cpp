@@ -42,9 +42,7 @@ int main()
     FileWriteReadUsers::loadUsersFromFile();
  
     Menu::mainMenu();
-    for (int i = 0; i < arrayUser.size(); ++i) {
-        cout<<arrayUser[i]<<endl;
-    }
+
     FileWriteReadUsers::saveUsersToFile();
 
     for (int i = 0; i < arrayUser.size(); ++i) {

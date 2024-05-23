@@ -47,7 +47,6 @@ void FileWriteReadUsers::saveUsersToFile()
                 Tester* tester = dynamic_cast<Tester*>(arrayUser[i]);
                 writeStr(arrayUser[i]->getLogin(), fileTester);
                 writeStr(arrayUser[i]->getPassword(), fileTester);
-                //writeStr(dynamic_cast<Tester*>(arrayUser[i])->getName, fileTester);
                 writeStr(tester->getName(), fileTester);
                 writeStr(tester->getSname(), fileTester);
                 writeStr(tester->getLastName(), fileTester);
