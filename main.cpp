@@ -10,22 +10,24 @@ using namespace std;
 #include "Test/Test.h"
 #include "Test/Question/Question.h"
 #include "./FileWriteReadUsers/FileWriteReadUsers.h"
-
+#include "TestManager/TestManager.h"
+#include "Test/Test.h"
 
 int main()
 {
+    locale::global(std::locale("ru_RU.UTF-8"));
+
     // #include <windows.h>    // byte is ambiguous symbol
     //SetConsoleCP(1251);      // меню в кракозябрах
     //SetConsoleCP(866);
+    //     Admin testAdm("admin", "admin");
+    //     arrayUser.push_back(&testAdm);
 
-//     Admin testAdm("admin", "admin");
-//     arrayUser.push_back(&testAdm);
+    //setlocale(LC_ALL, " ");
 
-    setlocale(LC_ALL, " ");
-
-//    Tester toster;
-//    toster.Register();
-//    toster.show();
+    //    Tester toster;
+    //    toster.Register();
+    //    toster.show();
 
     //Tester* toster = new Tester();
     //toster->Register();
@@ -42,14 +44,14 @@ int main()
     // выгрузка тестов
     //Menu::mainMenu();
 
-    FileWriteReadUsers::loadUsersFromFile();
+    //FileWriteReadUsers::loadUsersFromFile();
  
     Menu::mainMenu();
 
-    FileWriteReadUsers::saveUsersToFile();
+    //FileWriteReadUsers::saveUsersToFile();
 
-    for (int i = 0; i < arrayUser.size(); ++i) {
-        delete arrayUser[i];
-    }
+    //for (int i = 0; i < arrayUser.size(); ++i) {
+    //    delete arrayUser[i];
+    //}
     return 0;
 }

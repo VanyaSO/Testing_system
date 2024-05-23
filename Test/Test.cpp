@@ -4,10 +4,8 @@ Test::Test()
 {
 }
 
-Test::Test(string testName)
-{
-	_testName = testName;
-}
+Test::Test(string testName) : _testName(testName) {}
+
 
 void Test::setTestName(string testName)
 {
@@ -17,11 +15,19 @@ void Test::setTestName(string testName)
 void Test::addQuestion(string question)
 {
 	_questionList.emplace_back(question);
+
 }
 
-void Test::addAnswer(int index, string answer)
+void Test::addAnswer(string answer)
 {
-	_questionList[index].addAnswerOption(answer);
+	_questionList[_questionList.size() - 1].addAnswerOption(answer);
+	
+}
+
+void Test::addCorrectAnswer(int index)
+{
+	_questionList[_questionList.size() - 1].setCorrectAnswer(index);
+
 }
 
 int Test::getQuestionListSize()
@@ -34,7 +40,7 @@ string Test::getTestName()
 	return _testName;
 }
 
-Question Test::getQuestion(int index)
+Question& Test::getQuestion(int index)
 {
 	return _questionList[index];
 }
@@ -46,4 +52,3 @@ void Test::showTest()
 		_questionList[i].showQuestion();
 	}
 }
-

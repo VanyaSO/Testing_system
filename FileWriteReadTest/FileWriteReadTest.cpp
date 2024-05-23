@@ -28,9 +28,9 @@ void FileWriteReadTest::saveTestToFile(Test& test)
 				fout << Q.getOneAnswer(i);
 				fout << '\n';
 			}
-			fout << "CorrectAnswer: ";
+			fout << "CorrectAnswer:";
 			fout << '\n';
-			fout << Q.getCorrectAnswer();
+			fout << Q.getNumOfCorrectAnswer();
 			fout << '\n';
 		}
 		fout.close();
@@ -41,7 +41,7 @@ void FileWriteReadTest::readTest()
 {
 	ifstream fin;
 	string line;
-	int indexCorrectAnswer;
+	int numCorrectAnswer;
 	fin.open(_pathToTest);
 	if (!fin.is_open())
 	{
@@ -49,19 +49,21 @@ void FileWriteReadTest::readTest()
 	}
 	else
 	{
-		while (getline(fin, line)) // ���������� ������ �� �����
+		while (getline(fin, line)) 
 		{
             if (line == "CorrectAnswer: ")
             {
                 if (getline(fin, line))
                 {
-                    indexCorrectAnswer = stoi(line);
-                    cout << sizeof(indexCorrectAnswer) << endl;
+                    numCorrectAnswer = stoi(line);
+                    //cout << numCorrectAnswer << endl;
                 }
                 // тут нужно запросить ответ у пользователя и сравнить его с indexCorrectAnswer
+				system("cls");
             }
             else
             {
+				
                 cout << line << endl;
             }
 		}

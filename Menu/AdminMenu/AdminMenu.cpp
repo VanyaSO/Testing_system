@@ -95,35 +95,184 @@ void AdminMenu::adminMenuTestManagement()
 {
     cout << "Меню управления тестами" << endl;
     cout << "1) Добавить категорию" << endl;
-    cout << "2) Добавить тест" << endl;
-    cout << "3) Добавить вопрос" << endl;
-    cout << "4) Задавать правильные и неправильные ответы" << endl;
-    cout << "5) Импортировать категории и тесты с вопросами из файла" << endl;
-    cout << "6) Экспортировать категории и тесты с вопросами в файл" << endl;
+    cout << "2) Просмотр категорий" << endl;
+    cout << "3) Добавить секцию" << endl;
+    cout << "4) Просмотр секций" << endl;
+    cout << "5) Добавить тест" << endl;
+    cout << "6) Просмотр тестов" << endl;
     cout << "0) Вернуться назад" << endl;
+    TestManager pathToTest("../../../data/dataTest");
+    FileWriteReadTest test;
+
 
     int action = getActionMenu(6);
 
     switch (action)
     {
         case 1:
+        {
             cout << "Добавить категорию" << endl;
-            break; //TODO: создание категории
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            string categoryName;
+            cout << "Введите имя новой категории!" << endl;
+            getline(cin, categoryName);
+            pathToTest.addDirectory(categoryName);
+            system("cls");
+            break;
+        }
         case 2:
-            cout << "Добавить тест" << endl;
-            break; //TODO: создание теста
+        {
+            pathToTest.showFiles();
+            break;
+        }
         case 3:
-            cout << "Добавить вопрос" << endl;
-            break; //TODO: создание вопрос
+        {
+            cout << "Добавить секцию" << endl;
+            pathToTest.showFiles();
+            cout << "Введите номер категории, где нужно добавить секцию" << endl;
+            action = getActionMenu(pathToTest.getDirSize(), 1);// запрос в какую категорию ! 
+            pathToTest.setNewPath(pathToTest.getFileName(action));
+            string sectionName;
+            cout << "Введите имя новой секции!" << endl;
+            getline(cin, sectionName);
+            pathToTest.addDirectory(sectionName);
+            pathToTest.backToParent();
+            system("cls");
+            break;
+        }
         case 4:
-            cout << "Задавать правильные и неправильные ответы" << endl;
-            break; //TODO: Задавать правильные и неправильные ответы
+        {
+            pathToTest.showFiles();
+            cout << "Введите номер категории, для просмотра секций" << endl;
+            action = getActionMenu(pathToTest.getDirSize(), 1); 
+            pathToTest.setNewPath(pathToTest.getFileName(action));
+            if (pathToTest.getDirSize()==0)
+            {
+                system("cls");
+                cout << "Данная категория пока пуста" << endl;
+                break;
+            }
+            else
+                pathToTest.showFiles();
+            break;
+        }
         case 5:
-            cout << "Импортировать категории и тесты с вопросами из файла" << endl;
-            break; //TODO: Импортировать категории и тесты с вопросами из файла
+        {
+
+            cout << "Добавить тест" << endl;
+            pathToTest.showFiles();
+            cout << " Введите номер категории" << endl;
+            action = getActionMenu(pathToTest.getDirSize(), 1);// запрос какую категорию??? по номеру! 
+            pathToTest.setNewPath(pathToTest.getFileName(action));
+            pathToTest.scanExistingDirectories(); // сканируем доступные
+            system("cls");
+            if (pathToTest.getDirSize() == 0)
+            {
+                cout << "Данная категорияпутса! добавьте секцию!" << endl;
+                break;
+            }
+            else
+            {
+                pathToTest.showFiles();
+                cout << " Введите номер секции" << endl;
+                action = getActionMenu(pathToTest.getDirSize(), 1);// запрос какую категорию??? по номеру! 
+                pathToTest.setNewPath(pathToTest.getFileName(action));
+                pathToTest.scanExistingFiles();
+                system("cls");
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cout << " Введите имя нового теста" << endl;
+                string testName;
+                getline(cin, testName);
+                Test newTest(testName);
+                bool addQuestion = true;
+                int count = -1;
+                while (addQuestion)
+                {
+                    cout << "1) Вобавить вопрос" << endl;
+                    cout << "2) завершить" << endl;
+                    action = getActionMenu(2, 1);
+                    switch (action)
+                    {
+                    case 1:
+                    {
+                        count++;
+                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                        cout << "Введите вопрос!" << endl;
+                        string question;
+                        getline(cin, question);
+                        newTest.addQuestion(question);
+                        bool addAnswer = true;
+                        while (addAnswer)
+                        {
+                            cin.ignore(1, '\n');
+                            cout << "Введите вариант ответа (или нажмите Enter чтобы завершить)" << endl;
+                            string answer;
+                            getline(cin, answer);
+                            if (answer != "")
+                            {
+                                newTest.addAnswer(answer);
+                            }
+                            else
+                            {
+                                newTest.getQuestion(count).showQuestion();
+                                cout << "Введите номер правильного ответа" << endl;
+                                action = getActionMenu(newTest.getQuestion(count).getAnswerSize(), 1);
+                                newTest.addCorrectAnswer(action - 1);
+                                addAnswer = false;
+                            }
+                        }
+
+                    }
+                    case 2:
+                    {
+                        addQuestion = false;
+                        break;
+                    }
+                    }
+                    if (newTest.getQuestionListSize() != 0)
+                    {
+                        test.setPathToTest(pathToTest.getPath() + "\\" + newTest.getTestName() + ".txt");
+                        test.saveTestToFile(newTest);
+                        pathToTest.backToParent();
+                    }
+                }
+            }
+
+            break;
+        }
         case 6:
-            cout << "Экспортировать категории и тесты с вопросами в файл" << endl;
-            break; //TODO: Экспортировать категории и тесты с вопросами в файла
+        {
+            pathToTest.showFiles();
+            cout << "Введите номер категории, для просмотра секций" << endl;
+            action = getActionMenu(pathToTest.getDirSize(), 1);
+            pathToTest.setNewPath(pathToTest.getFileName(action));
+            if (pathToTest.getDirSize() == 0)
+            {
+                cout << "Данная категория пока пуста" << endl;
+                break;
+            }
+            else
+            {
+                pathToTest.showFiles();
+                cout << " Введите номер секции, для просмотра тестов" << endl;
+                action = getActionMenu(pathToTest.getDirSize(), 1);// запрос какую категорию??? по номеру! 
+                pathToTest.setNewPath(pathToTest.getFileName(action));
+                pathToTest.scanExistingFiles(); // сканируем доступные
+                system("cls");
+                if (pathToTest.getDirSize() == 0)
+                {
+                    cout << "Данная секция пока пуста" << endl;
+                    break;
+                }
+                else
+                {
+                    cout << " Доступные тесты:" << endl;
+                    pathToTest.showFiles();
+                    pathToTest.backToParent();
+                }
+            }
+            break;
+        }
         case 0:
             return;
     }

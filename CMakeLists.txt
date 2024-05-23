@@ -26,8 +26,9 @@ add_executable(Testing_system
         common/config.cpp
         FileWriteReadUsers/FileWriteReadUsers.h
         FileWriteReadUsers/FileWriteReadUsers.cpp
-
-)
+        TestManager/TestManager.h
+        TestManager/TestManager.cpp
+ )
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET Testing_system PROPERTY CXX_STANDARD 20)
