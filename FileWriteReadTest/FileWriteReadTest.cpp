@@ -52,7 +52,7 @@ void FileWriteReadTest::readTest()
 		int answer;// временно
 		while (getline(fin, line)) 
 		{
-            if (line == "CorrectAnswer: ")
+            if (line == "CorrectAnswer:")
             {
                 if (getline(fin, line))
                 {
@@ -79,4 +79,9 @@ void FileWriteReadTest::readTest()
 		}
 		fin.close();
 	}
+}
+
+string FileWriteReadTest::getPath()
+{
+	return _pathToTest;
 }
