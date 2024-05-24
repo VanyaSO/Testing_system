@@ -15,7 +15,8 @@ using namespace std;
 
 int main()
 {
-
+    //system("dir");
+    //return 0;
     locale::global(std::locale("ru_RU.UTF-8"));
 
     FileWriteReadUsers::loadUsersFromFile();

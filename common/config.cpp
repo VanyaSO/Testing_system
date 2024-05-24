@@ -9,6 +9,25 @@ User* user = nullptr;
 vector<User*> arrayUser;
 
 const int passMinSize = 6;
-string path_file_admin = "../data/users/admin.dat";
-string path_file_tester = "../data/users/tester.dat";
+//string path_file_admin = "../data/users/admin.dat";
 
+//string path_file_admin = "../../../data/users/admin.dat";
+//string path_file_tester = "..\\data\\users\\tester.dat";
+
+
+#ifdef __APPLE__
+// Код для MacOS
+path_file_admin = "../data/users/admin.dat";
+path_file_tester = "../data/users/tester.dat";
+
+
+#elif defined(_WIN32) || defined(_WIN64)
+// Код для Windows
+
+string path_file_admin = "../../../data/users/admin.dat";
+string path_file_tester = "../../../data/users/tester.dat";
+
+#else
+// Код для других ОС
+//path_file_admin = "default/path/to/admin.dat";
+#endif
