@@ -16,8 +16,8 @@ const int passMinSize = 6;
 
 #ifdef __APPLE__
 // Код для MacOS
-path_file_admin = "../data/users/admin.dat";
-path_file_tester = "../data/users/tester.dat";
+string path_file_admin = "../data/users/admin.dat";
+string path_file_tester = "../data/users/tester.dat";
 
 
 #elif defined(_WIN32) || defined(_WIN64)
