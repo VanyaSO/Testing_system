@@ -82,4 +82,26 @@ void FileWriteReadUsers::loadUsersFromFile()
         }
         fileAdmin.close();
     }
+    
+    fstream fileTester;
+    fileTester.open(path_file_tester, ios::binary | ios::in);
+    if (fileTester.is_open())
+    {
+        while (true)
+        {
+            string login(readStr(fileTester));
+            if (login == "null")
+            {
+                break;
+            }
+            string password(readStr(fileTester));
+            string name(readStr(fileTester));
+            string sName(readStr(fileTester));
+            string lastName(readStr(fileTester));
+            string address(readStr(fileTester));
+            string phone(readStr(fileTester));
+            arrayUser.push_back(new Tester(login, password, name, sName, lastName, address, phone));
+        }
+        fileTester.close();
+    }
 }
