@@ -14,5 +14,6 @@ public:
 	void setPathToTest(string);
 	void saveTestToFile(Test&);
 	void readTest();
+	string getPath();
 
 };
