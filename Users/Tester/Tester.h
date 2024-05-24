@@ -24,6 +24,7 @@ public:
 	string getName() const;
 	string getSname() const;
 	string getLastName() const;
+	string getLogin();
 
 	void setAddress(string address);
 	void setPhone(string phone); 

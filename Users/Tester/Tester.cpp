@@ -47,7 +47,6 @@ string Tester::getSname() const
 string Tester::getLastName() const
 {
 	return _fullName.lastName;
-
 }
 
 void Tester::setAddress(string address)
