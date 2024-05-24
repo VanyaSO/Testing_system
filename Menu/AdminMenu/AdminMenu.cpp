@@ -103,8 +103,6 @@ void AdminMenu::adminMenuTestManagement()
     cout << "0) Вернуться назад" << endl;
     TestManager pathToTest("../../../data/dataTest");
     FileWriteReadTest test;
-
-
     int action = getActionMenu(6);
 
     switch (action)
@@ -228,17 +226,17 @@ void AdminMenu::adminMenuTestManagement()
                         addQuestion = false;
                         break;
                     }
-                    }
                     if (newTest.getQuestionListSize() != 0)
                     {
                         test.setPathToTest(pathToTest.getPath() + "\\" + newTest.getTestName() + ".txt");
                         test.saveTestToFile(newTest);
                         pathToTest.backToParent();
                     }
+                    }
                 }
-            }
 
-            break;
+                break;
+            }
         }
         case 6:
         {
