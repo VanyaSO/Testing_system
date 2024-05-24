@@ -2,7 +2,9 @@
 
 void TestManager::setNewPath(string path)
 {
-	_parent_directory += "//" + path;
+	//_parent_directory += "\\" + path;
+	_parent_directory += "/" + path;
+	//_parent_directory += path;
 	this->scanExistingDirectories();
 }
 

@@ -101,7 +101,7 @@ void AdminMenu::adminMenuTestManagement()
     cout << "5) Добавить тест" << endl;
     cout << "6) Просмотр тестов" << endl;
     cout << "0) Вернуться назад" << endl;
-    TestManager pathToTest("../../../data/dataTest");
+    TestManager pathToTest("data/dataTest");
     FileWriteReadTest test;
     int action = getActionMenu(6);
 
@@ -219,24 +219,24 @@ void AdminMenu::adminMenuTestManagement()
                                 addAnswer = false;
                             }
                         }
-
+                        break;
                     }
                     case 2:
                     {
                         addQuestion = false;
                         break;
                     }
-                    if (newTest.getQuestionListSize() != 0)
-                    {
-                        test.setPathToTest(pathToTest.getPath() + "\\" + newTest.getTestName() + ".txt");
-                        test.saveTestToFile(newTest);
-                        pathToTest.backToParent();
-                    }
                     }
                 }
 
-                break;
+            if (newTest.getQuestionListSize() != 0)
+            {
+                test.setPathToTest(pathToTest.getPath() + "/" + newTest.getTestName() + ".txt");
+                test.saveTestToFile(newTest);
+                pathToTest.backToParent();
             }
+            }
+            break;
         }
         case 6:
         {

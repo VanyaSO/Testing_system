@@ -12,9 +12,25 @@ using namespace std;
 #include "./FileWriteReadUsers/FileWriteReadUsers.h"
 #include "TestManager/TestManager.h"
 #include "Test/Test.h"
+#include <filesystem>
 
 int main()
 {
+    //перенести из мейн куда то
+    string file_name = "data/dataTest";
+
+    if (!filesystem::exists(file_name)) //проверка существуют ли папки
+    {
+        filesystem::create_directories(file_name);//создание пап
+    }
+    file_name = "data/users";
+
+    if (!filesystem::exists(file_name)) //проверка существуют ли папки
+    {
+        filesystem::create_directories(file_name);//создание пап
+    }
+
+
 
     locale::global(std::locale("ru_RU.UTF-8"));
 
