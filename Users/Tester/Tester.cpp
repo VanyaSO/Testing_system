@@ -44,14 +44,14 @@ string Tester::getSname() const
 	return _fullName.sName;
 }
 
-string Tester::getLastName() const
-{
-	return _fullName.lastName;
-
 string Tester::getLogin()
 {
 	return _login;
+}
 
+string Tester::getLastName() const
+{
+	return _fullName.lastName;
 }
 
 void Tester::setAddress(string address)

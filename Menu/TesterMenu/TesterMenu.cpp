@@ -24,23 +24,37 @@ void TesterMenu::testerMenu() {
                 system("cls");
                 pathToTest.setNewPath(pathToTest.getFileName(action));
                 pathToTest.scanExistingDirectories(); 
-
-                pathToTest.showFiles();
-                cout << " Введите номер секции" << endl;
-                action = getActionMenu(pathToTest.getDirSize(), 1);
-                system("cls");
-                pathToTest.setNewPath(pathToTest.getFileName(action));
-                pathToTest.scanExistingFiles();
-
-                pathToTest.showFiles();
-                cout << " Введите номер теста" << endl;
-                action = getActionMenu(pathToTest.getDirSize(), 1);
-                system("cls");
-                pathToTest.setNewPath(pathToTest.getFileName(action));
-                test.setPathToTest(pathToTest.getPath());
-                test.readTest();
-                pathToTest.backToParent();// возврат в корневую директорию
-                break; 
+                if (pathToTest.getDirSize() ==0)
+                {
+                    cout << " Секции отсутствуют! обратитесь к админу!" << endl;
+                    break;
+                }
+                else
+                {
+                    pathToTest.showFiles();
+                    cout << " Введите номер секции" << endl;
+                    action = getActionMenu(pathToTest.getDirSize(), 1);
+                    system("cls");
+                    pathToTest.setNewPath(pathToTest.getFileName(action));
+                    pathToTest.scanExistingFiles();
+                    if (pathToTest.getDirSize() == 0)
+                    {
+                        cout << " Тесты отсутствуют! обратитесь к админу!" << endl;
+                        break;
+                    }
+                    else
+                    {
+                        pathToTest.showFiles();
+                        cout << " Введите номер теста" << endl;
+                        action = getActionMenu(pathToTest.getDirSize(), 1);
+                        system("cls");
+                        pathToTest.setNewPath(pathToTest.getFileName(action));
+                        test.setPathToTest(pathToTest.getPath());
+                        test.readTest();
+                        pathToTest.backToParent();// возврат в корневую директорию
+                        break; 
+                    }
+                }
 
             }
         case 0:
