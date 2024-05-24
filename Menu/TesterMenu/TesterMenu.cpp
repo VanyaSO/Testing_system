@@ -15,7 +15,7 @@ void TesterMenu::testerMenu() {
         case 2:
             {
                 cout << "новое тестирование" << endl;
-                TestManager pathToTest("../../data/dataTest");
+                TestManager pathToTest("data/dataTest");
                 FileWriteReadTest test;
 
                 pathToTest.showFiles();
@@ -48,8 +48,10 @@ void TesterMenu::testerMenu() {
                         cout << " Введите номер теста" << endl;
                         action = getActionMenu(pathToTest.getDirSize(), 1);
                         system("cls");
-                        pathToTest.setNewPath(pathToTest.getFileName(action));
-                        test.setPathToTest(pathToTest.getPath());
+                        //pathToTest.setNewPath(pathToTest.getFileName(action));
+                        test.setPathToTest(pathToTest.getPath()+"/"+pathToTest.getFileName(action));
+                        cout << pathToTest.getPath() << endl;
+                        cout << test.getPath() << endl;
                         test.readTest();
                         pathToTest.backToParent();// возврат в корневую директорию
                         break; 
