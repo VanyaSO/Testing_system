@@ -15,7 +15,7 @@ void TesterMenu::testerMenu() {
         case 2:
             {
                 cout << "новое тестирование" << endl;
-                TestManager pathToTest("../../../data/dataTest");
+                TestManager pathToTest("../../data/dataTest");
                 FileWriteReadTest test;
 
                 pathToTest.showFiles();
