@@ -25,3 +25,40 @@ void Admin::Register()
 
     arrayUser.push_back(this);
 }
+
+void Admin::changeTesterAddress(string login, string address)
+{
+    for (User* el : arrayUser)
+    {
+        if (el->getRole() == "tester" && el->getLogin() == login)
+        {
+            Tester* tester = dynamic_cast<Tester*>(el);
+            tester->setAddress(address);
+            cout << SUCCESSFUL_COLOR << "Адрес успешно изменен." << RESET_COLOR << endl;
+            return;
+        }
+    }
+    cout << ERROR_COLOR << "Тестировщик с таким логином не найден." << RESET_COLOR << endl;
+}
+
+void Admin::changeTesterPhone(string login, string phone)
+{
+    for (User* el : arrayUser)
+    {
+        if (el->getRole() == "tester" && el->getLogin() == login)
+        {
+            Tester* tester = dynamic_cast<Tester*>(el);
+            try
+            {
+                tester->setPhone(phone);
+                cout << SUCCESSFUL_COLOR << "Телефон успешно изменен." << RESET_COLOR << endl;
+            }
+            catch (const invalid_argument& er)
+            {
+                cout << ERROR_COLOR << "Ошибка: " << er.what() << RESET_COLOR << endl;
+            }
+            return;
+        }
+    }
+    cout << ERROR_COLOR << "Тестировщик с таким логином не найден." << RESET_COLOR << endl;
+}

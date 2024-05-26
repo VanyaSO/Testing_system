@@ -2,6 +2,7 @@
 #include <utility>
 #include <vector>
 #include "../User.h"
+#include "../Tester/Tester.h"
 
 class Admin : public User
 {
@@ -12,4 +13,7 @@ public:
 
 	void show() override;
 	void Register() override;
+
+	void changeTesterAddress(string login, string address);
+	void changeTesterPhone(string login, string phone);
 };
