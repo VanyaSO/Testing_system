@@ -55,7 +55,7 @@ void Menu::mainMenu()
             cout << " Делаем Регистрацию" << endl;
             user = new Tester;
             user->Register();
-            break; //: функция регистрации для юзера  
+            break;
         case 0:
             return;
     }
@@ -64,12 +64,10 @@ void Menu::mainMenu()
     {
         if (user->getRole() == "admin")
         {
-            cout << "admin" << endl;
             AdminMenu::adminMenu();
         }
         else if (user->getRole() == "tester")
         {
-            cout << "tester" << endl;
             TesterMenu::testerMenu();
         }
     }
