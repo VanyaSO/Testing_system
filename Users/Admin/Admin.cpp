@@ -26,39 +26,26 @@ void Admin::Register()
     arrayUser.push_back(this);
 }
 
-void Admin::changeTesterAddress(string login, string address)
+void Admin::changeTesterAddress(Tester* tester, string address)
 {
-    for (User* el : arrayUser)
+    try
     {
-        if (el->getRole() == "tester" && el->getLogin() == login)
-        {
-            Tester* tester = dynamic_cast<Tester*>(el);
-            tester->setAddress(address);
-            cout << SUCCESSFUL_COLOR << "Адрес успешно изменен." << RESET_COLOR << endl;
-            return;
-        }
+        tester->changeAddress(address);
     }
-    cout << ERROR_COLOR << "Тестировщик с таким логином не найден." << RESET_COLOR << endl;
+    catch (const logic_error& err)
+    {
+        cout << ERROR_COLOR << "Ошибка: " << err.what() << RESET_COLOR << endl;
+    }
 }
 
-void Admin::changeTesterPhone(string login, string phone)
+void Admin::changeTesterPhone(Tester* tester, string phone)
 {
-    for (User* el : arrayUser)
+    try
     {
-        if (el->getRole() == "tester" && el->getLogin() == login)
-        {
-            Tester* tester = dynamic_cast<Tester*>(el);
-            try
-            {
-                tester->setPhone(phone);
-                cout << SUCCESSFUL_COLOR << "Телефон успешно изменен." << RESET_COLOR << endl;
-            }
-            catch (const invalid_argument& er)
-            {
-                cout << ERROR_COLOR << "Ошибка: " << er.what() << RESET_COLOR << endl;
-            }
-            return;
-        }
+        tester->changePhone(phone);
     }
-    cout << ERROR_COLOR << "Тестировщик с таким логином не найден." << RESET_COLOR << endl;
+    catch (const exception& err)
+    {
+        cout << ERROR_COLOR << "Ошибка: " << err.what() << RESET_COLOR << endl;
+    }
 }

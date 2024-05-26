@@ -66,6 +66,24 @@ void Tester::setPhone(string phone)
 	}
 }
 
+void Tester::changeAddress(string address)
+{
+	if (address.compare(_address) == 0)
+	{
+		throw logic_error("Адрес на который вы хотите заменить, совпадает с текущим");
+	}
+	_address = address;
+}
+
+void Tester::changePhone(string phone)
+{
+	if (phone.compare(_phone) == 0)
+	{
+		throw logic_error("Номер на который вы хотите заменить, совпадает с текущим");
+	}
+	this->setPhone(phone);
+}
+
 void Tester::show()
 {
 	cout<<"Full Name: " << _fullName.name << " " << _fullName.sName << " " << _fullName.lastName << endl;

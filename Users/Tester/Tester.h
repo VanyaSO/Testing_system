@@ -28,6 +28,9 @@ public:
 
 	void setAddress(string address);
 	void setPhone(string phone); 
+	void changeAddress(string address);
+	void changePhone(string phone);
+
 
 	void show() override;		
 	void Register() override;	
