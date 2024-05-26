@@ -97,8 +97,16 @@ void Tester::Register()
 		}
 		break;
 	}
-	requestPersonalDetails();
-	arrayUser.push_back(this);
+	try
+	{
+		requestPersonalDetails();
+		arrayUser.push_back(this);
+	}
+	catch (const exception& err)
+	{
+		cout << ERROR_COLOR << "Ошибка: " << err.what() << RESET_COLOR << endl;
+	}
+
 }
 
 void Tester::requestPersonalDetails()
@@ -121,9 +129,7 @@ void Tester::requestPersonalDetails()
 		}
 		else
 		{
-			throw invalid_argument("Номер телефона должен содержать только цифры.");
+			cout << ERROR_COLOR << "Номер телефона должен содержать только цифры." << RESET_COLOR << endl;
 		}
-		cout << ERROR_COLOR << "Номер телефона должен содержать только цифры." << RESET_COLOR << endl;
 	}
-
 }
