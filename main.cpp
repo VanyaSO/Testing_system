@@ -34,20 +34,12 @@ int main()
 
     FileWriteReadUsers::loadUsersFromFile();
  
-    cout << "MY TEST: " << endl;
-
-    string str = "dwad";
-    Admin* admin = dynamic_cast<Admin*>(user);
-    Tester* tester = dynamic_cast<Tester*>(arrayUser[1]);
-    admin->changeTesterPhone(tester, str);
-    //Menu::mainMenu();
+    Menu::mainMenu();
 
     FileWriteReadUsers::saveUsersToFile();
-    cout << "check:";
-    string check;
-    cin >> check;
-    //for (int i = 0; i < arrayUser.size(); ++i) {
-    //    delete arrayUser[i];
-    //}
+
+    for (int i = 0; i < arrayUser.size(); ++i) {
+        delete arrayUser[i];
+    }
     return 0;
 }

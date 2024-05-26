@@ -30,6 +30,9 @@ public:
 	void setPhone(string phone); 
 	void changeAddress(string address);
 	void changePhone(string phone);
+	void changeName(string name);
+	void changeSname(string sName);
+	void changeLastName(string lastname);
 
 
 	void show() override;		
