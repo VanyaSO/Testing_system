@@ -84,18 +84,33 @@ User* User::Login()
             case 1:
                 {
                     // создаем юзера и возвращаем его
-                    // TODO: сделать это для тестера
                     Tester* newTester = new Tester(login, password);
                     newTester->requestPersonalDetails();       
                     arrayUser.push_back(newTester);     
                     return newTester;
-                    
-                    //Admin* newAdmin = new Admin(login, password);
-                    //arrayUser.push_back(newAdmin);
-                    //return newAdmin;
                 }
             case 0:
                 return nullptr;
         }
     }
+}
+
+void User::changeLogin(string login)
+{
+    if (login.compare(_login) == 0)
+    {
+        throw logic_error("Новый логин совпадает с текущим. Изменения невозможны.");
+    }
+
+    _login = login;
+}
+
+void User::changePassword(std::string password)
+{
+    if (password.compare(_password) == 0)
+    {
+        throw logic_error("Новый пароль совпадает с текущим. Изменения невозможны.");
+    }
+
+    _password = password;
 }
