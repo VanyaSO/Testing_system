@@ -14,6 +14,6 @@ public:
 	void show() override;
 	void Register() override;
 
-	void changeTesterAddress(string login, string address);
-	void changeTesterPhone(string login, string phone);
+	void changeTesterAddress(Tester* tester, string address);
+	void changeTesterPhone(Tester* tester, string phone);
 };
