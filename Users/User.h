@@ -28,5 +28,8 @@ public:
     string getPassword() const;
     string getRole() const;
 
+    void changeLogin(string login);
+    void changePassword(string password);
+
     static User* Login();
 };

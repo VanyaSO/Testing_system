@@ -1,4 +1,7 @@
 #include "AdminMenu.h"
+#include "../../common/config.h"
+#include "../../Users/Tester/Tester.h"
+
 void AdminMenu::adminMenu()
 {
     cout << "Главное меню" << endl;
@@ -14,20 +17,48 @@ void AdminMenu::adminMenu()
     switch (action)
     {
         case 1:
-            cout << "Замена логина" << endl;
-            break; //TODO: замена логина
+        {
+            string newLogin;
+            cout << "Ввдите новый логин" << endl;
+            cin >> newLogin;
+
+            try
+            {
+                user->changeLogin(newLogin);
+                cout << SUCCESSFUL_COLOR << "Логин успешно изменен" << RESET_COLOR << endl;
+            }
+            catch (const logic_error& error)
+            {
+                cout << ERROR_COLOR << error.what() << RESET_COLOR << endl;
+            }
+            break;
+        }
         case 2:
-            cout << "Замена пароля" << endl;
-            break; //TODO: замена пароля
+        {
+            string newLogin;
+            cout << "Ввдите новый пароль" << endl;
+            cin >> newLogin;
+
+            try
+            {
+                user->changePassword(newLogin);
+                cout << SUCCESSFUL_COLOR << "Пароль успешно изменен" << RESET_COLOR << endl;
+            }
+            catch (const logic_error& error)
+            {
+                cout << ERROR_COLOR << error.what() << RESET_COLOR << endl;
+            }
+            break;
+        }
         case 3:
             AdminMenu::adminMenuUserManagement();
             break;
         case 4:
             AdminMenu::adminMenuStatistics();
-            break; //TODO: меню Просмотр. статистики
+            break;
         case 5:
             AdminMenu::adminMenuTestManagement();
-            break; //TODO: меню упр. тестами
+            break;
         case 0:
             return;
     }
@@ -48,11 +79,40 @@ void AdminMenu::adminMenuUserManagement()
     switch (action)
     {
         case 1:
-            cout << "Рег. пользователя" << endl;
-            break; //TODO: рег.
+        {
+            Tester* newTester = new Tester();
+            newTester->Register();
+            arrayUser.push_back(newTester);
+            break;
+        }
         case 2:
-            cout << "Удаляем пользователя" << endl;
-            break; //TODO: Удалить пользователя
+        {
+            string userLogin;
+            string adminPassword;
+            cout << "Введите логин пользователя" << endl;
+            cin >> userLogin;
+
+            auto deleteUser = find_if(arrayUser.begin(), arrayUser.end(), [&userLogin](User*& obj) {
+                return obj->getLogin() == userLogin;
+            });
+
+            if (deleteUser == arrayUser.end())
+            {
+                cout << ERROR_COLOR << "Пользователя не сущесвует" << RESET_COLOR << endl;
+                break;
+            }
+
+            cout << WARNING_COLOR << "Введите пароль для подтвержения" << RESET_COLOR << endl;
+            cin >> adminPassword;
+            if (adminPassword != user->getPassword())
+            {
+                cout << ERROR_COLOR << "Пароль неверный !" << RESET_COLOR << endl;
+                break;
+            }
+            arrayUser.erase(deleteUser);
+            cout << SUCCESSFUL_COLOR << "Пользователь успешно удален" << RESET_COLOR << endl;
+            break;
+        }
         case 3:
             cout << "Модифицировать данные пользователя" << endl;
             break; //TODO: Модифицировать данные пользователя
@@ -101,7 +161,7 @@ void AdminMenu::adminMenuTestManagement()
     cout << "5) Добавить тест" << endl;
     cout << "6) Просмотр тестов" << endl;
     cout << "0) Вернуться назад" << endl;
-    TestManager pathToTest("data/dataTest");
+    TestManager pathToTest("../data/dataTest");
     FileWriteReadTest test;
     int action = getActionMenu(6);
 
@@ -115,7 +175,6 @@ void AdminMenu::adminMenuTestManagement()
             cout << "Введите имя новой категории!" << endl;
             getline(cin, categoryName);
             pathToTest.addDirectory(categoryName);
-            system("cls");
             break;
         }
         case 2:
