@@ -60,6 +60,10 @@ void Tester::setPhone(string phone)
 	{
 		_phone = phone;
 	}
+	else
+	{
+		throw invalid_argument("Номер телефона должен состоять из чисел");
+	}
 }
 
 void Tester::show()
@@ -115,7 +119,11 @@ void Tester::requestPersonalDetails()
 		{
 			break;
 		}
-		cout << ERROR_COLOR << "Phone number should only contain digits." << RESET_COLOR << endl;
+		else
+		{
+			throw invalid_argument("Номер телефона должен содержать только цифры.");
+		}
+		cout << ERROR_COLOR << "Номер телефона должен содержать только цифры." << RESET_COLOR << endl;
 	}
 
 }

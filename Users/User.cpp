@@ -83,7 +83,6 @@ User* User::Login()
         switch (action) {
             case 1:
                 {
-                    // создаем юзера и возвращаем его
                     Tester* newTester = new Tester(login, password);
                     newTester->requestPersonalDetails();       
                     arrayUser.push_back(newTester);     
