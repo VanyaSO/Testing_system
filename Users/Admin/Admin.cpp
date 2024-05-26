@@ -49,3 +49,39 @@ void Admin::changeTesterPhone(Tester* tester, string phone)
         cout << ERROR_COLOR << "Ошибка: " << err.what() << RESET_COLOR << endl;
     }
 }
+
+void Admin::changeTesterName(Tester* tester, string name)
+{
+    try
+    {
+        tester->changeName(name);
+    }
+    catch (const exception& err)
+    {
+        cout << ERROR_COLOR << "Ошибка: " << err.what() << RESET_COLOR << endl;
+    }
+}
+
+void Admin::changeTesterSname(Tester* tester, string sName)
+{
+    try
+    {
+        tester->changeSname(sName);
+    }
+    catch (const exception& err)
+    {
+        cout << ERROR_COLOR << "Ошибка: " << err.what() << RESET_COLOR << endl;
+    }
+}
+
+void Admin::changeTesterLastName(Tester* tester, string lastName)
+{
+    try
+    {
+        tester->changeLastName(lastName);
+    }
+    catch (const exception& err)
+    {
+        cout << ERROR_COLOR << "Ошибка: " << err.what() << RESET_COLOR << endl;
+    }
+}

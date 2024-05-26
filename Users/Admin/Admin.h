@@ -16,4 +16,7 @@ public:
 
 	void changeTesterAddress(Tester* tester, string address);
 	void changeTesterPhone(Tester* tester, string phone);
+	void changeTesterName(Tester* tester, string name);
+	void changeTesterSname(Tester* tester, string sName);
+	void changeTesterLastName(Tester* tester, string lastName);
 };

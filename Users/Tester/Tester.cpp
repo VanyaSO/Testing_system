@@ -84,6 +84,33 @@ void Tester::changePhone(string phone)
 	this->setPhone(phone);
 }
 
+void Tester::changeName(string name)
+{
+	if (name.compare(_fullName.name) == 0)
+	{
+		throw logic_error("Имя на которое вы хотите заменить, совпадает с текущим");
+	}
+	_fullName.name = name;
+}
+
+void Tester::changeSname(string sName)
+{
+	if (sName.compare(_fullName.sName) == 0)
+	{
+		throw logic_error("Sname на которое вы хотите заменить, совпадает с текущим");
+	}
+	_fullName.sName = sName;
+}
+
+void Tester::changeLastName(string lastname)
+{
+	if (lastname.compare(_fullName.lastName) == 0)
+	{
+		throw logic_error("LastName на которое вы хотите заменить, совпадает с текущим");
+	}
+	_fullName.lastName = lastname;
+}
+
 void Tester::show()
 {
 	cout<<"Full Name: " << _fullName.name << " " << _fullName.sName << " " << _fullName.lastName << endl;
