@@ -245,8 +245,8 @@ void AdminMenu::adminMenuUserManagement()
             }
 
             cout << "Обновленные данные пользователя" << endl;
-            tester->show();
-//            cout << *tester;
+//            tester->show();
+            cout << *tester;
 
             break;
         }

@@ -111,15 +111,6 @@ void Tester::changeLastName(string lastname)
 	_fullName.lastName = lastname;
 }
 
-void Tester::show()
-{
-    cout << "Логин: " << this->getLogin()  << endl;
-    cout << "Пароль: " << this->getPassword()  << endl;
-    cout << "ФИО: " << this->getFullName() << endl;
-    cout << "Адрес: " << this->getAddress()  << endl;
-    cout << "Телефон: " << this->getPhone()  << endl;
-}
-
 void Tester::Register()
 {
 	while (true)
@@ -181,10 +172,12 @@ void Tester::requestPersonalDetails()
 	}
 }
 
-ostream& operator<<(ostream& out, Tester& tester) {
-    out << "Логин: " << tester.getLogin()  << endl;
-    out << "Пароль: " << tester.getPassword()  << endl;
-    out << "ФИО: " << tester.getFullName() << endl;
-    out << "Адрес: " << tester.getAddress()  << endl;
-    out << "Телефон: " << tester.getPhone()  << endl;
+ostream& operator<<(ostream& out, Tester& tester)
+{
+    out << "Логин: " << tester.getLogin() << "\n"
+    << "Пароль: " << tester.getPassword() << "\n"
+    << "ФИО: " << tester.getFullName() << "\n"
+    << "Адрес: " << tester.getAddress() << "\n"
+    << "Телефон: " << tester.getPhone() << "\n" << endl;
+    return out;
 }

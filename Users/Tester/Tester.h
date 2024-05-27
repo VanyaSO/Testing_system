@@ -33,8 +33,6 @@ public:
 	void changeSName(string sName);
 	void changeLastName(string lastname);
 
-
-	void show() override;		
 	void Register() override;	
 	void requestPersonalDetails();
 };
