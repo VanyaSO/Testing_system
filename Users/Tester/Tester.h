@@ -24,22 +24,19 @@ public:
 	string getName() const;
 	string getSname() const;
 	string getLastName() const;
-	string getLogin();
 
 	void setAddress(string address);
 	void setPhone(string phone); 
 	void changeAddress(string address);
 	void changePhone(string phone);
 	void changeName(string name);
-	void changeSname(string sName);
+	void changeSName(string sName);
 	void changeLastName(string lastname);
 
 
 	void show() override;		
 	void Register() override;	
 	void requestPersonalDetails();
-
-
-	//void startTest();   // <- TODO
-	//void watchResult();  // <- TODO
 };
+
+ostream& operator<<(ostream& out, Tester& tester);
