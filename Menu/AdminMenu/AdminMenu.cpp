@@ -1,6 +1,7 @@
 #include "AdminMenu.h"
 #include "../../common/config.h"
 #include "../../Users/Tester/Tester.h"
+#include "../../Users/Admin/Admin.h"
 
 void AdminMenu::adminMenu()
 {
@@ -80,13 +81,14 @@ void AdminMenu::adminMenuUserManagement()
     {
         case 1:
         {
+            // Зарегистрировать пользователя
             Tester* newTester = new Tester();
             newTester->Register();
-            arrayUser.push_back(newTester);
             break;
         }
         case 2:
         {
+            // Удалить пользователя
             string userLogin;
             string adminPassword;
             cout << "Введите логин пользователя" << endl;
@@ -98,7 +100,7 @@ void AdminMenu::adminMenuUserManagement()
 
             if (deleteUser == arrayUser.end())
             {
-                cout << ERROR_COLOR << "Пользователя не сущесвует" << RESET_COLOR << endl;
+                cout << ERROR_COLOR << "Пользователя не существует" << RESET_COLOR << endl;
                 break;
             }
 
@@ -114,14 +116,148 @@ void AdminMenu::adminMenuUserManagement()
             break;
         }
         case 3:
-            cout << "Модифицировать данные пользователя" << endl;
-            break; //TODO: Модифицировать данные пользователя
+        {
+            // Модифицировать данные пользователя
+            Admin* admin = dynamic_cast<Admin*>(user);
+            Tester* tester;
+
+            cout << "Введите логин пользователя" << endl;
+            string testerLogin;
+            cin >> testerLogin;
+            // ищем тестера
+            auto changeTester = find_if(arrayUser.begin(), arrayUser.end(), [&testerLogin](User*& obj) {
+                return obj->getLogin() == testerLogin;
+            });
+            tester = dynamic_cast<Tester*>(*changeTester);
+            // проверка нашли ли мы тестера
+            if (changeTester == arrayUser.end())
+            {
+                cout << ERROR_COLOR << "Пользователя не сущесвует" << RESET_COLOR << endl;
+                break;
+            }
+
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            string newLogin;
+            cout << "Введите новый логин. Если не хотите менять нажмине Enter" << endl;
+            getline(cin, newLogin);
+            if (!newLogin.empty())
+            {
+                try
+                {
+                    tester->changeLogin(newLogin);
+                    cout << SUCCESSFUL_COLOR << "Логин успешно изменен" << RESET_COLOR << endl;
+                }
+                catch (const exception& error)
+                {
+                    cout << ERROR_COLOR << error.what() << RESET_COLOR << endl;
+                }
+            }
+
+            string newPassword;
+            cout << "Введите новый пароль. Если не хотите менять нажмине Enter" << endl;
+            getline(cin, newPassword);
+            if (!newPassword.empty())
+            {
+                try
+                {
+                    tester->changePassword(newPassword);
+                    cout << SUCCESSFUL_COLOR << "Пароль успешно изменен" << RESET_COLOR << endl;
+                }
+                catch (const exception& error)
+                {
+                    cout << ERROR_COLOR << error.what() << RESET_COLOR << endl;
+                }
+            }
+
+            string newName;
+            cout << "Введите новое имя. Если не хотите менять, нажмите Enter" << endl;
+            getline(cin, newName);
+            if (!newName.empty()) {
+                try
+                {
+                    tester->changeName(newName);
+                    cout << SUCCESSFUL_COLOR << "Имя успешно изменено" << RESET_COLOR << endl;
+                }
+                catch (const exception& err)
+                {
+                    cout << ERROR_COLOR << err.what() << RESET_COLOR << endl;
+                }
+            }
+
+            string newLastName;
+            cout << "Введите новую фамилию. Если не хотите менять, нажмите Enter" << endl;
+            getline(cin, newLastName);
+            if (!newLastName.empty()) {
+                try
+                {
+                    tester->changeLastName(newLastName);
+                    cout << SUCCESSFUL_COLOR << "Фамилия успешно изменена" << RESET_COLOR << endl;
+                }
+                catch (const exception& err)
+                {
+                    cout << ERROR_COLOR << err.what() << RESET_COLOR << endl;
+                }
+            }
+
+            string newSName;
+            cout << "Введите новое отчество. Если не хотите менять, нажмите Enter" << endl;
+            getline(cin, newSName);
+            if (!newSName.empty()) {
+                try
+                {
+                    tester->changeSName(newName);
+                    cout << newSName << "Отчество успешно изменено" << RESET_COLOR << endl;
+                }
+                catch (const exception& err)
+                {
+                    cout << ERROR_COLOR << err.what() << RESET_COLOR << endl;
+                }
+            }
+
+            string newAddress;
+            cout << "Введите новый адрес. Если не хотите менять, нажмите Enter" << endl;
+            getline(cin, newAddress);
+            if (!newAddress.empty()) {
+                try
+                {
+                    tester->changeAddress(newAddress);
+                    cout << SUCCESSFUL_COLOR << "Адрес успешно изменен" << RESET_COLOR << endl;
+                }
+                catch (const logic_error& err)
+                {
+                    cout << ERROR_COLOR << err.what() << RESET_COLOR << endl;
+                }
+            }
+
+            string newPhone;
+            cout << "Введите новый номер телефона. Если не хотите менять, нажмите Enter" << endl;
+            getline(cin, newPhone);
+            if (!newPhone.empty()) {
+                try
+                {
+                    tester->changePhone(newPhone);
+                    cout << SUCCESSFUL_COLOR << "Телефон успешно изменен" << RESET_COLOR << endl;
+                }
+                catch (const exception& err)
+                {
+                    cout << ERROR_COLOR << err.what() << RESET_COLOR << endl;
+                }
+            }
+
+            cout << "Обновленные данные пользователя" << endl;
+//            tester->show();
+//            cout << *tester;
+
+            break;
+        }
         case 0:
             return;
     }
 
     adminMenuUserManagement();
 }
+
+
 
 void AdminMenu::adminMenuStatistics()
 {
@@ -288,12 +424,12 @@ void AdminMenu::adminMenuTestManagement()
                     }
                 }
 
-            if (newTest.getQuestionListSize() != 0)
-            {
-                test.setPathToTest(pathToTest.getPath() + "/" + newTest.getTestName() + ".txt");
-                test.saveTestToFile(newTest);
-                pathToTest.backToParent();
-            }
+                if (newTest.getQuestionListSize() != 0)
+                {
+                    test.setPathToTest(pathToTest.getPath() + "/" + newTest.getTestName() + ".txt");
+                    test.saveTestToFile(newTest);
+                    pathToTest.backToParent();
+                }
             }
             break;
         }
