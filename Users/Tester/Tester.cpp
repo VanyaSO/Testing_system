@@ -70,7 +70,7 @@ void Tester::changeAddress(string address)
 {
 	if (address.compare(_address) == 0)
 	{
-		throw logic_error("Адрес на который вы хотите заменить, совпадает с текущим");
+		throw logic_error("Новый адрес совпадает с текущим. Изменения невозможны.");
 	}
 	_address = address;
 }
@@ -79,7 +79,7 @@ void Tester::changePhone(string phone)
 {
 	if (phone.compare(_phone) == 0)
 	{
-		throw logic_error("Номер на который вы хотите заменить, совпадает с текущим");
+		throw logic_error("Новый номер телефона совпадает с текущим. Изменения невозможны.");
 	}
 	this->setPhone(phone);
 }
@@ -88,16 +88,16 @@ void Tester::changeName(string name)
 {
 	if (name.compare(_fullName.name) == 0)
 	{
-		throw logic_error("Имя на которое вы хотите заменить, совпадает с текущим");
+		throw logic_error("Новое имя совпадает с текущим. Изменения невозможны.");
 	}
 	_fullName.name = name;
 }
 
-void Tester::changeSname(string sName)
+void Tester::changeSName(string sName)
 {
 	if (sName.compare(_fullName.sName) == 0)
 	{
-		throw logic_error("Sname на которое вы хотите заменить, совпадает с текущим");
+		throw logic_error("Новое отчество совпадает с текущим. Изменения невозможны.");
 	}
 	_fullName.sName = sName;
 }
@@ -106,16 +106,18 @@ void Tester::changeLastName(string lastname)
 {
 	if (lastname.compare(_fullName.lastName) == 0)
 	{
-		throw logic_error("LastName на которое вы хотите заменить, совпадает с текущим");
+		throw logic_error("Новая фамилия совпадает с текущим. Изменения невозможны.");
 	}
 	_fullName.lastName = lastname;
 }
 
 void Tester::show()
 {
-	cout<<"Full Name: " << _fullName.name << " " << _fullName.sName << " " << _fullName.lastName << endl;
-	cout<<"Role: " << _role << " Address: " << _address << " Phone: " << _phone << endl;
-	cout << "Login: " << _login << " " << "Password: " << _password << endl << endl;
+    cout << "Логин: " << this->getLogin()  << endl;
+    cout << "Пароль: " << this->getPassword()  << endl;
+    cout << "ФИО: " << this->getFullName() << endl;
+    cout << "Адрес: " << this->getAddress()  << endl;
+    cout << "Телефон: " << this->getPhone()  << endl;
 }
 
 void Tester::Register()
@@ -126,7 +128,7 @@ void Tester::Register()
 		cin >> _login;
 		if (this->isUserRegistered())
 		{
-			cout<< ERROR_COLOR <<"User already exist. " << RESET_COLOR << endl;
+			cout<< ERROR_COLOR << "Пользователь уже существует" << RESET_COLOR << endl;
 			continue;
 		}
 		break;
@@ -137,7 +139,7 @@ void Tester::Register()
 		cin >> _password;
 		if (_password.length() < passMinSize) // passMinSize = 6 � config�
 		{
-			cout << ERROR_COLOR << "Password must be at least 6 characters." << RESET_COLOR << endl;
+			cout << ERROR_COLOR << "Пароль должен быть не менее 6 символов" << RESET_COLOR << endl;
 			continue;
 		}
 		break;
@@ -177,4 +179,12 @@ void Tester::requestPersonalDetails()
 			cout << ERROR_COLOR << "Номер телефона должен содержать только цифры." << RESET_COLOR << endl;
 		}
 	}
+}
+
+ostream& operator<<(ostream& out, Tester& tester) {
+    out << "Логин: " << tester.getLogin()  << endl;
+    out << "Пароль: " << tester.getPassword()  << endl;
+    out << "ФИО: " << tester.getFullName() << endl;
+    out << "Адрес: " << tester.getAddress()  << endl;
+    out << "Телефон: " << tester.getPhone()  << endl;
 }
