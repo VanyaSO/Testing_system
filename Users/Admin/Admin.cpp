@@ -1,10 +1,5 @@
 #include "Admin.h"
 #include "../../common/config.h"
-void Admin::show()
-{
-	cout << "Admin Login: " << _login << "\n" << "Admin Passw: " << _password << "\n" << "Admin Role: " << _role << endl << endl;
-}
-
 void Admin::Register()
 {
     while (true)
@@ -24,4 +19,11 @@ void Admin::Register()
     cin >> _password;
 
     arrayUser.push_back(this);
+}
+
+ostream& operator<<(ostream& out, Admin& admin)
+{
+    out << "Логин: " << admin.getLogin() << "\n"
+    << "Пароль: " << admin.getPassword() << "\n" << endl;
+    return out;
 }

@@ -11,7 +11,6 @@ public:
     Admin():User("", "", "admin"){}
 	Admin(string login, string pass):User(login, pass, "admin"){}
 
-	void show() override;
 	void Register() override;
 
 	void changeTesterAddress(Tester* tester, string address);
@@ -20,3 +19,5 @@ public:
 	void changeTesterSname(Tester* tester, string sName);
 	void changeTesterLastName(Tester* tester, string lastName);
 };
+
+ostream& operator<<(ostream& out, Admin& admin);

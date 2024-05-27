@@ -7,7 +7,6 @@ class IUser
 {
 public:
 	virtual void Register() = 0;
-    virtual void show() = 0;
 };
 
 
