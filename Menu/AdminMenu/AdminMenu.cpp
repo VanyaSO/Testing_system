@@ -73,9 +73,10 @@ void AdminMenu::adminMenuUserManagement()
     cout << "1) Зарегистрировать пользователя" << endl;
     cout << "2) Удалить пользователя" << endl;
     cout << "3) Модифицировать данные пользователя" << endl;
+    cout << "4) Просмотр всех пользователей" << endl;
     cout << "0) Вернуться назад" << endl;
 
-    int action = getActionMenu(3);
+    int action = getActionMenu(4);
 
     switch (action)
     {
@@ -250,6 +251,16 @@ void AdminMenu::adminMenuUserManagement()
 
             break;
         }
+        case 4:
+            {
+                for (int i = 0; i < arrayUser.size(); ++i) {
+                    if (arrayUser[i]->getRole() == "tester")
+                    {
+                        cout << *(dynamic_cast<Tester*>(arrayUser[i]));
+                    }
+                }
+                break;
+            }
         case 0:
             return;
     }
