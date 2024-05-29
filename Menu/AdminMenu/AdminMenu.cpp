@@ -268,18 +268,41 @@ void AdminMenu::adminMenuStatistics()
     cout << "0) Вернуться назад" << endl;
 
     int action = getActionMenu(3);
+    SaveResult results(path_to_results);
+    results.readfFromFile();
 
     switch (action)
     {
         case 1:
+        {
+            cin.ignore();
             cout << "По категориям" << endl;
+            TestManager pathToTest(path_to_test);
+            pathToTest.showFiles();
+            action = getActionMenu(pathToTest.getDirSize(), 1);
+            results.seeResultByCategory(pathToTest.getFileName(action));
             break; //TODO: По категориям
+        }
         case 2:
+        {
+            cin.ignore();
             cout << "По конкретныму тесту" << endl;
+            string filename;
+            cout << "Введите имя теста" << endl;
+            getline(cin, filename);
+            results.seeResultByTestName(filename);
             break; //TODO: По конкретныму тесту
+        }
         case 3:
+        {
+            cin.ignore();
             cout << "За конкретными пользователями" << endl;
+            string testerLogin;
+            cout << "Введите ЛОГИН пользователя" << endl;
+            getline(cin, testerLogin);
+            results.seeResultByName(testerLogin);
             break; //TODO: За конкретными пользователями
+        }
         case 0:
             return;
     }
@@ -297,7 +320,7 @@ void AdminMenu::adminMenuTestManagement()
     cout << "5) Добавить тест" << endl;
     cout << "6) Просмотр тестов" << endl;
     cout << "0) Вернуться назад" << endl;
-    TestManager pathToTest("../data/dataTest");
+    TestManager pathToTest(path_to_test);
     FileWriteReadTest test;
     int action = getActionMenu(6);
 

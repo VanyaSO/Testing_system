@@ -19,15 +19,20 @@ const int passMinSize = 6;
 // Код для MacOS
 string path_file_admin = "../data/users/admin.dat";
 string path_file_tester = "../data/users/tester.dat";
+string path_to_results = "../data/results.txt";
+string path_to_test = "../data/dataTest";
 
 #elif defined(_WIN32) || defined(_WIN64)
 // Код для Windows
 string path_file_admin = "../../../data/users/admin.dat";
 string path_file_tester = "../../../data/users/tester.dat";
+string path_to_results = "../../../data/results.txt";
+string path_to_test = "../../../data/dataTest";
 
 #else
 // Код для других ОС
 string path_file_admin = "../../../data/users/admin.dat";
 string path_file_tester = "../../../data/users/tester.dat";
+
 
 #endif

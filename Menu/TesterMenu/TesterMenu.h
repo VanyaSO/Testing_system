@@ -3,6 +3,7 @@
 #include "../Menu.h"
 #include "../../TestManager/TestManager.h"
 #include "../../FileWriteReadTest/FileWriteReadTest.h"
+#include "../../common/config.h"
 
 class TesterMenu: public Menu
 {
