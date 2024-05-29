@@ -37,7 +37,7 @@ void FileWriteReadTest::saveTestToFile(Test& test)
 	}
 }
 
-void FileWriteReadTest::readTest()
+void FileWriteReadTest::readTest(Result& myResult)
 {
 	ifstream fin;
 	string line;
@@ -49,7 +49,7 @@ void FileWriteReadTest::readTest()
 	}
 	else
 	{
-		int answer;// временно
+		int answer,answerNum = 0,correctAnswer = 0;// временно
 		while (getline(fin, line)) 
 		{
             if (line == "CorrectAnswer:")
@@ -57,16 +57,13 @@ void FileWriteReadTest::readTest()
                 if (getline(fin, line))
                 {
                     numCorrectAnswer = stoi(line);
-                    // ВРЕМЕННООООООО!!!!!!!!!!!!!!ТУТ МОГЛА БЫТЬ ВАША РЕКЛАМА!!!
 					cout << " Введите номер правильного ответа!" << endl;
 					cin >> answer;
+					answerNum++;
 					if (answer ==numCorrectAnswer)
 					{
-						cout << "Верно ты молодец" << endl;
+						correctAnswer++;
 					}
-					else
-						cout << "OPSSSSS" << endl;
-					// ДО СЮДА ВРЕМЕННООООООО!!!!!!!!!!!!!!
                 }
                 
 				system("cls");
@@ -77,6 +74,9 @@ void FileWriteReadTest::readTest()
                 cout << line << endl;
             }
 		}
+		myResult.setQuestionNum(answerNum);
+		myResult.setCorrectAnswer(correctAnswer);
+		myResult.countGrade();
 		fin.close();
 	}
 }
