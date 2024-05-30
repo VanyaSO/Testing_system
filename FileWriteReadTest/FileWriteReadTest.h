@@ -6,6 +6,8 @@ using namespace std;
 #include <fstream>
 #include "../Test/Test.h"
 #include "../Test/Question/Question.h"
+#include "../SaveResult/SaveResult.h"
+#include "../SaveResult/Result/Result.h"
 
 class FileWriteReadTest
 {
@@ -13,7 +15,7 @@ class FileWriteReadTest
 public:
 	void setPathToTest(string);
 	void saveTestToFile(Test&);
-	void readTest();
+	void readTest(Result&);
 	string getPath();
 
 };

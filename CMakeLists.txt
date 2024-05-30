@@ -28,6 +28,10 @@ add_executable(Testing_system
         FileWriteReadUsers/FileWriteReadUsers.cpp
         TestManager/TestManager.h
         TestManager/TestManager.cpp
+        SaveResult/SaveResult.h
+        SaveResult/SaveResult.cpp
+        SaveResult/Result/Result.h
+        SaveResult/Result/Result.cpp
  )
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
